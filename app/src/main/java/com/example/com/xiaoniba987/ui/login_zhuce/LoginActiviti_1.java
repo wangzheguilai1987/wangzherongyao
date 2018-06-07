@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.com.xiaoniba987.ui.MainActivity;
+import com.example.com.xiaoniba987.MainActivity;
 import com.example.com.xiaoniba987.R;
 import com.example.com.xiaoniba987.base.BaseActivity;
 import com.example.com.xiaoniba987.bean.UserRegisterBean;
@@ -90,6 +90,11 @@ public class LoginActiviti_1 extends BaseActivity<LoginZhucePresenter> implement
                 .httpModule(new HttpModule())
                 .build()
                 .inject(this);
+    }
+
+    @Override
+    public void initView(View view) {
+
     }
 
     @Override//成功回调方法
