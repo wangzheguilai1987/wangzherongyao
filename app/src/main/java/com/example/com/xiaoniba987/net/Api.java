@@ -6,5 +6,4 @@ package com.example.com.xiaoniba987.net;
 
 public interface Api {
     String LOGIN_URL="https://www.zhaoapi.cn/";
-
 }

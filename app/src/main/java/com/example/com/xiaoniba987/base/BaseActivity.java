@@ -25,7 +25,9 @@ public abstract class BaseActivity<T extends BaseContract.BasePresenter> extends
         inject();
 
         //绑定
-        mPresenter.attchView(this);
+        if (mPresenter!=null) {
+            mPresenter.attchView(this);
+        }
     }
 
     @Override//解绑
@@ -42,11 +44,6 @@ public abstract class BaseActivity<T extends BaseContract.BasePresenter> extends
 
     @Override//关闭进度条
     public void dismissLoading() {
-
-    }
-
-    @Override//显示布局组件
-    public void initView(View view) {
 
     }
 }
