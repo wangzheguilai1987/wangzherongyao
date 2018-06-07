@@ -1,6 +1,7 @@
-package com.example.com.xiaoniba987;
+package com.example.com.xiaoniba987.ui;
 
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
@@ -13,10 +14,15 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.SimpleAdapter;
 
+import com.bumptech.glide.Glide;
+import com.example.com.xiaoniba987.R;
 import com.example.com.xiaoniba987.fragment.DuanZiFragment;
 import com.example.com.xiaoniba987.fragment.QuTuFragment;
 import com.example.com.xiaoniba987.fragment.ShiPingFragment;
+import com.example.com.xiaoniba987.ui.celakuang.My_GuanZhu;
+import com.example.com.xiaoniba987.ui.login.LoginActivity_;
 import com.example.com.xiaoniba987.ui.tuijian.TuiJianFragment;
+import com.example.com.xiaoniba987.utils.SharedPreferencesUtils;
 import com.example.com.xiaoniba987.utils.TitleActivity;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.hjm.bottomtabbar.BottomTabBar;
@@ -57,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    //抽屉事件
     private void initDrwLaout() {
         // 1创建数据
         final List<HashMap<String, Object>> list = new ArrayList<HashMap<String, Object>>();
@@ -80,6 +87,14 @@ public class MainActivity extends AppCompatActivity {
         list.add(map3);
         list.add(map4);
 
+        String uid = (String) SharedPreferencesUtils.getParam(MainActivity.this, "uid", "-1");
+        String name = (String) SharedPreferencesUtils.getParam(MainActivity.this, "name", "");
+        String iconUrl = (String) SharedPreferencesUtils.getParam(MainActivity.this, "iconUrl", "");
+        if (uid.equals("-1")){
+
+        }else {
+            Glide.with(this).load(iconUrl).into(mCesdv);
+        }
 
         // 2创建适配器
         SimpleAdapter adapter = new SimpleAdapter(this, list,
@@ -88,13 +103,19 @@ public class MainActivity extends AppCompatActivity {
 
         // 3 填充
         mLv.setAdapter(adapter);
-
         mLv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                //Toast.makeText(MainActivity.this,list.get(position).toString(),Toast.LENGTH_SHORT).show();
+                switch (position){
+                    case 0:
+                        Intent intent=new Intent(MainActivity.this,My_GuanZhu.class);
+                        startActivity(intent);
+                        break;
+                }
             }
         });
+
+
     }
 
     //加载fragment
@@ -133,6 +154,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        mDimg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(MainActivity.this, LoginActivity_.class);
+                startActivity(intent);
+            }
+        });
 
     }
 

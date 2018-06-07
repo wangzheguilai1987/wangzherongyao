@@ -5,6 +5,7 @@ package com.example.com.xiaoniba987.net;
  */
 
 import com.example.com.xiaoniba987.bean.UserBean;
+import com.example.com.xiaoniba987.bean.UserRegisterBean;
 
 import io.reactivex.Observable;
 import okhttp3.MultipartBody;
@@ -23,4 +24,10 @@ public interface LoginApiService {
     @POST("user/login")//post请求
     Observable<UserBean> login(@Field("mobile") String mobile,
                                @Field("password") String password );
+    //注册
+    @FormUrlEncoded    //有参数用
+    @POST("user/reg") //post请求
+    Observable<UserRegisterBean> loginRegister(@Field("mobile") String mobile,
+                                               @Field("password") String password );
+
    }
