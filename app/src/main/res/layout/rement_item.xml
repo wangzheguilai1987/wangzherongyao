@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/drawee_view"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            app:placeholderImage="@mipmap/ic_launcher_round"
+            app:roundAsCircle="true"/>
+        <LinearLayout
+            android:id="@+id/ll"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_toRightOf="@+id/drawee_view"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/text_name"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="牛奶"/>
+            <TextView
+                android:id="@+id/text_time"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="2000000.00"/>
+        </LinearLayout>
+        <com.getbase.floatingactionbutton.FloatingActionsMenu
+            android:id="@+id/talk_item_floating"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_alignParentRight="true"
+            app:fab_addButtonSize="mini"
+            app:fab_expandDirection="left">
+
+            <com.getbase.floatingactionbutton.FloatingActionButton
+                android:id="@+id/talk_item_floating_a"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:fab_icon="@drawable/raw_1499933216"
+                app:fab_size="mini" />
+
+            <com.getbase.floatingactionbutton.FloatingActionButton
+                android:id="@+id/talk_item_floating_b"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:fab_icon="@drawable/raw_1499933789"
+                app:fab_size="mini" />
+
+            <com.getbase.floatingactionbutton.FloatingActionButton
+                android:id="@+id/talk_item_floating_xihuan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:fab_icon="@drawable/raw_1499995160"
+                app:fab_size="mini" />
+
+        </com.getbase.floatingactionbutton.FloatingActionsMenu>
+    </RelativeLayout>
+    <TextView
+        android:id="@+id/text_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="天气妹妹"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="270dp">
+
+        <fm.jiecao.jcvideoplayer_lib.JCVideoPlayerStandard
+            android:id="@+id/videoplayer"
+            android:layout_width="match_parent"
+            android:layout_height="270dp" />
+
+        <LinearLayout
+            android:id="@+id/linear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="40dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/sc_aa"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:text="收藏"
+                android:textColor="#ffffff" />
+
+           <!-- <TextView
+                android:id="@+id/gbdm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:padding="5dp"
+                android:text="关闭弹幕"
+                android:textColor="#ffffff" />
+
+            <TextView
+                android:id="@+id/test"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:padding="5dp"
+                android:text="打开弹幕"
+                android:textColor="#ffffff" />-->
+            <ImageView
+                android:id="@+id/member_send_good"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/raw1499933215" />
+
+        </LinearLayout>
+    </RelativeLayout>
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="bucuo,bucuo"/>
+</LinearLayout>

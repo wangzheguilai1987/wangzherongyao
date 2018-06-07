@@ -1,4 +1,4 @@
-package com.example.com.xiaoniba987.fragment;
+package com.example.com.xiaoniba987.ui.qutu;
 
 import android.support.v4.app.Fragment;
 

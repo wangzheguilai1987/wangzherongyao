@@ -1,4 +1,4 @@
-package com.example.com.xiaoniba987.ui.tuijian;
+package com.example.com.xiaoniba987.ui.shipin;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.com.xiaoniba987.R;
+import com.example.com.xiaoniba987.base.BaseFragment;
 import com.example.com.xiaoniba987.ui.tuijian.fragment.GuanZhuFragment;
 import com.example.com.xiaoniba987.ui.tuijian.fragment.ReMenFragment;
 import com.example.com.xiaoniba987.utils.TitleActivity;
@@ -25,8 +26,7 @@ import java.util.List;
  * Created by 李小龙 on 2018/6/5.
  */
 
-public class TuiJianFragment extends Fragment {
-
+public class ShiPingFragment extends BaseFragment {
     private View view;
     private TabLayout mTab;
     private ViewPager mViewpager;
@@ -34,30 +34,34 @@ public class TuiJianFragment extends Fragment {
     private List<Fragment> fragmentList;
     private TitleActivity mTitleTemplate;
     private DrawerLayout mDl;
-
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.tuijianfragment, container, false);
+        View view = inflater.inflate(R.layout.shipin_fragment, container, false);
         initView(view);
 
         return view;
 
 
     }
+    @Override
+    public int getContentLayout() {
+        return R.layout.shipin_fragment;
+    }
 
+    @Override
+    public void inject() {
 
-    //获取组件
-    private void initView(View view) {
+    }
+
+    @Override
+    public void initView(View view) {
         mTab = (TabLayout) view.findViewById(R.id.tab);
         mViewpager = (ViewPager) view.findViewById(R.id.viewpager);
         //添加数据
         getData();
     }
-
-    //添加数据
     public void getData() {
         list = new ArrayList<>();
         fragmentList = new ArrayList<>();
@@ -93,6 +97,5 @@ public class TuiJianFragment extends Fragment {
         mTab.setupWithViewPager(mViewpager);
         mViewpager.setOffscreenPageLimit(2);//预加载
     }
-
 
 }

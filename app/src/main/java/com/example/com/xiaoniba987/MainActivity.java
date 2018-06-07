@@ -12,10 +12,10 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.SimpleAdapter;
+import android.widget.TextView;
 
-import com.example.com.xiaoniba987.fragment.DuanZiFragment;
-import com.example.com.xiaoniba987.fragment.QuTuFragment;
-import com.example.com.xiaoniba987.fragment.ShiPingFragment;
+import com.example.com.xiaoniba987.ui.duanzi.DuanZiFragment;
+import com.example.com.xiaoniba987.ui.qutu.QuTuFragment;
 import com.example.com.xiaoniba987.ui.tuijian.TuiJianFragment;
 import com.example.com.xiaoniba987.utils.TitleActivity;
 import com.facebook.drawee.view.SimpleDraweeView;
@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
     private ListView mLv;
     private RelativeLayout mLeft;
     private BottomTabBar btab;
-
+    private TextView tv_title;
 
 
     @Override
@@ -108,11 +108,18 @@ public class MainActivity extends AppCompatActivity {
                 .addTabItem("段子", R.drawable.duanzi2, R.drawable.duanzi1, DuanZiFragment.class)
                 .addTabItem("视频", R.drawable.shipin2, R.drawable.shipin1, ShiPingFragment.class)
                 .addTabItem("趣图", R.drawable.tuijian2, R.drawable.tuijian1, QuTuFragment.class)
-                .isShowDivider(false);
+                .isShowDivider(false)
+                .setOnTabChangeListener(new BottomTabBar.OnTabChangeListener() {
+                    @Override
+                    public void onTabChange(int position, String name) {
+                        tv_title.setText(name);
+                    }
+                });
     }
 
     //获取组件
     private void initView() {
+        tv_title = findViewById(R.id.tv_title);
         mTitleTemplate = (TitleActivity) findViewById(R.id.title_);
         mTabar = (BottomTabBar) findViewById(R.id.tabar);
         mDl = (DrawerLayout) findViewById(R.id.dl);
