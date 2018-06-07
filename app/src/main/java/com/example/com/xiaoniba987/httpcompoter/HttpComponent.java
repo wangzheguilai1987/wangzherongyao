@@ -19,6 +19,7 @@ public interface HttpComponent {
     //登陆
     void inject(LoginActivity loginActivity);
     void inject(ReMenFragment reMenFragment);
-    void inject(GuanZhuFragment guanZhuFragment);
     void inject(DuanZiFragment duanZiFragment);
+
+    void inject(GuanZhuFragment guanZhuFragment);
 }

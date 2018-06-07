@@ -16,6 +16,7 @@ import android.widget.TextView;
 
 import com.example.com.xiaoniba987.ui.duanzi.DuanZiFragment;
 import com.example.com.xiaoniba987.ui.qutu.QuTuFragment;
+import com.example.com.xiaoniba987.ui.shipin.ShiPingFragment;
 import com.example.com.xiaoniba987.ui.tuijian.TuiJianFragment;
 import com.example.com.xiaoniba987.utils.TitleActivity;
 import com.facebook.drawee.view.SimpleDraweeView;
