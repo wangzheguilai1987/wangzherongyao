@@ -65,16 +65,13 @@ public class ShiPingFragment extends BaseFragment {
     public void getData() {
         list = new ArrayList<>();
         fragmentList = new ArrayList<>();
-        list.add("热门");
-        list.add("关注");
+
         TextView textView = new TextView(getActivity());
         textView.setTextSize(20);
 
         //创建fragment
-        GuanZhuFragment guanZhuFragment = new GuanZhuFragment();
-        ReMenFragment reMenFragment = new ReMenFragment();
-        fragmentList.add(reMenFragment);
-        fragmentList.add(guanZhuFragment);
+
+
         //适配器
         mViewpager.setAdapter(new FragmentPagerAdapter(getChildFragmentManager()) {
             @Override
