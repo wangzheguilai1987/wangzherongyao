@@ -16,6 +16,7 @@ public class VideoDetailActivity extends BaseActivity implements View.OnClickLis
     private ImageView image_shoucang;
     private ImageView image_quxiao;
     private ImageView image_fenxiang;
+    //**************************************
     private SimpleDraweeView drawee_view;
     private JCVideoPlayerStandard videoplayer;
 
