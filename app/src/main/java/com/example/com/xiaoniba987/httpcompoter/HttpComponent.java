@@ -7,6 +7,8 @@ package com.example.com.xiaoniba987.httpcompoter;
 import com.example.com.xiaoniba987.module.HttpModule;
 import com.example.com.xiaoniba987.ui.duanzi.DuanZiFragment;
 import com.example.com.xiaoniba987.ui.login.LoginActivity;
+import com.example.com.xiaoniba987.ui.shipin.fragment.FuJinFragment;
+import com.example.com.xiaoniba987.ui.shipin.fragment.ReMenShiPinFragment;
 import com.example.com.xiaoniba987.ui.login_zhuce.LoginActiviti_1;
 import com.example.com.xiaoniba987.ui.tuijian.fragment.GuanZhuFragment;
 import com.example.com.xiaoniba987.ui.tuijian.fragment.ReMenFragment;
@@ -24,4 +26,6 @@ public interface HttpComponent {
     void inject(DuanZiFragment duanZiFragment);
 
     void inject(GuanZhuFragment guanZhuFragment);
+    void inject(ReMenShiPinFragment reMenShiPinFragment);
+    void inject(FuJinFragment fuJinFragment);
 }

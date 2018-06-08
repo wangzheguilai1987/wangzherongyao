@@ -15,6 +15,8 @@ import android.widget.TextView;
 
 import com.example.com.xiaoniba987.R;
 import com.example.com.xiaoniba987.base.BaseFragment;
+import com.example.com.xiaoniba987.ui.shipin.fragment.FuJinFragment;
+import com.example.com.xiaoniba987.ui.shipin.fragment.ReMenShiPinFragment;
 import com.example.com.xiaoniba987.ui.tuijian.fragment.GuanZhuFragment;
 import com.example.com.xiaoniba987.ui.tuijian.fragment.ReMenFragment;
 import com.example.com.xiaoniba987.utils.TitleActivity;
@@ -38,7 +40,7 @@ public class ShiPingFragment extends BaseFragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.shipin_fragment, container, false);
+        View view = inflater.inflate(R.layout.tuijianfragment, container, false);
         initView(view);
 
         return view;
@@ -47,7 +49,7 @@ public class ShiPingFragment extends BaseFragment {
     }
     @Override
     public int getContentLayout() {
-        return R.layout.shipin_fragment;
+        return R.layout.tuijianfragment;
     }
 
     @Override
@@ -65,12 +67,16 @@ public class ShiPingFragment extends BaseFragment {
     public void getData() {
         list = new ArrayList<>();
         fragmentList = new ArrayList<>();
-
+        list.add("热门");
+        list.add("附近");
         TextView textView = new TextView(getActivity());
         textView.setTextSize(20);
 
         //创建fragment
-
+        FuJinFragment fuJinFragment = new FuJinFragment();
+        ReMenShiPinFragment reMenShiPinFragment = new ReMenShiPinFragment();
+        fragmentList.add(reMenShiPinFragment);
+        fragmentList.add(fuJinFragment);
 
         //适配器
         mViewpager.setAdapter(new FragmentPagerAdapter(getChildFragmentManager()) {

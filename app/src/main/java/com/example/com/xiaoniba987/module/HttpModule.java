@@ -8,10 +8,14 @@ package com.example.com.xiaoniba987.module;
 import com.example.com.xiaoniba987.net.AdApi;
 import com.example.com.xiaoniba987.net.AdApiService;
 import com.example.com.xiaoniba987.net.Api;
+import com.example.com.xiaoniba987.net.HotVideosApi;
+import com.example.com.xiaoniba987.net.HotVideosApiService;
 import com.example.com.xiaoniba987.net.JokesApi;
 import com.example.com.xiaoniba987.net.JokesApiService;
 import com.example.com.xiaoniba987.net.LoginApi;
 import com.example.com.xiaoniba987.net.LoginApiService;
+import com.example.com.xiaoniba987.net.NearVideosApi;
+import com.example.com.xiaoniba987.net.NearVideosApiService;
 import com.example.com.xiaoniba987.net.VideosApi;
 import com.example.com.xiaoniba987.net.VideosApiService;
 import com.example.com.xiaoniba987.utils.CommonParamsInterceptor;
@@ -138,5 +142,53 @@ public class HttpModule {
 
 
         return JokesApi.getJokesApi(jokesApiService);
+    }
+
+    @Provides
+        //不需要拦截器
+    HotVideosApi provideHotVideosApi() {
+
+        OkHttpClient okHttpClient = new OkHttpClient.Builder()
+                .writeTimeout(20, TimeUnit.SECONDS)
+                .readTimeout(20, TimeUnit.SECONDS)
+                .connectTimeout(10, TimeUnit.SECONDS)
+                .addInterceptor(new CommonParamsInterceptor())//拦截器
+                .build();
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(Api.LOGIN_URL)
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create())
+                .client(okHttpClient)//用自己的设置读取和链接超时时间'
+
+                .build();
+        HotVideosApiService hotVideosApiService = retrofit.create(HotVideosApiService.class);
+
+
+        return HotVideosApi.getHotVideosApi(hotVideosApiService);
+    }
+
+    @Provides
+        //不需要拦截器
+    NearVideosApi provideNearVideosApi() {
+
+        OkHttpClient okHttpClient = new OkHttpClient.Builder()
+                .writeTimeout(20, TimeUnit.SECONDS)
+                .readTimeout(20, TimeUnit.SECONDS)
+                .connectTimeout(10, TimeUnit.SECONDS)
+                .addInterceptor(new CommonParamsInterceptor())//拦截器
+                .build();
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(Api.LOGIN_URL)
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create())
+                .client(okHttpClient)//用自己的设置读取和链接超时时间'
+
+                .build();
+        NearVideosApiService nearVideosApiService = retrofit.create(NearVideosApiService.class);
+
+
+        return NearVideosApi.getNearVideosApi(nearVideosApiService);
     }
 }
