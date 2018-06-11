@@ -10,11 +10,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.com.xiaoniba987.MainActivity;
 import com.example.com.xiaoniba987.R;
 import com.example.com.xiaoniba987.base.BaseActivity;
 import com.example.com.xiaoniba987.bean.UserBean;
 import com.example.com.xiaoniba987.httpcompoter.DaggerHttpComponent;
+import com.example.com.xiaoniba987.ui.MainActivity;
 import com.example.com.xiaoniba987.ui.login.contract.LoginContract;
 import com.example.com.xiaoniba987.ui.login.presenter.LoginPresenter;
 import com.example.com.xiaoniba987.ui.login_zhuce.LoginActiviti_1;

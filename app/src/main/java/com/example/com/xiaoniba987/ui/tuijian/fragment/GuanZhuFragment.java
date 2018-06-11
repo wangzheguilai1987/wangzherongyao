@@ -3,7 +3,6 @@ package com.example.com.xiaoniba987.ui.tuijian.fragment;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -15,6 +14,7 @@ import android.view.ViewGroup;
 import com.example.com.xiaoniba987.R;
 import com.example.com.xiaoniba987.base.BaseFragment;
 import com.example.com.xiaoniba987.bean.AdBean;
+import com.example.com.xiaoniba987.bean.PraiseBean;
 import com.example.com.xiaoniba987.bean.VideosBean;
 import com.example.com.xiaoniba987.httpcompoter.DaggerHttpComponent;
 import com.example.com.xiaoniba987.ui.tuijian.adapter.RenMenAdapter;
@@ -42,7 +42,10 @@ public class GuanZhuFragment extends BaseFragment<TuiPresenter> implements TuiCo
     private String uid="2797";
     private String type="2";
     private int page=1;
-
+    private PraiseBean praiseBean;
+    private String msg1;
+    private String msg2;
+    private String msg3;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -88,27 +91,40 @@ public class GuanZhuFragment extends BaseFragment<TuiPresenter> implements TuiCo
                 smart_refresh.finishRefresh(2000);
             }
         });
-    }
-
-    @Override
-    public void getAdSuccess(AdBean adBean) {
-        Log.d("ddd",adBean.getData().get(0).getTitle());
-        List<AdBean.DataBean> data = adBean.getData();
-        List<String> list=new ArrayList<>();
-        for (int i=0;i<data.size();i++){
-            list.add(data.get(i).getIcon());
-        }
+        List<Integer> list=new ArrayList<>();
+        list.add(R.drawable.raw_1500002643);
         banner.setImageLoader(new GlideImageLoader());
         banner.setImages(list);
         banner.start();
     }
 
     @Override
+    public void getAdSuccess(AdBean adBean) {
+
+    }
+
+    @Override
     public void getVideosSuccess(VideosBean videosBean) {
         if (videosBean!=null) {
             List<VideosBean.DataBean> data = videosBean.getData();
-            RenMenAdapter renMenAdapter = new RenMenAdapter(data, getActivity());
+            RenMenAdapter renMenAdapter = new RenMenAdapter(data, getActivity(),mPresenter,msg1,msg2,msg3);
             rv.setAdapter(renMenAdapter);
         }
     }
+
+    @Override
+    public void praiseSuccess(String msg1) {
+        msg1 = msg1;
+    }
+
+    @Override
+    public void addFavoriteSuccess(String msg2) {
+        msg2= msg2;
+    }
+
+    @Override
+    public void cancelFavoriteSuccess(String msg3) {
+        msg3 = msg3;
+    }
+
 }

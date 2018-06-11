@@ -14,6 +14,8 @@ import android.view.ViewGroup;
 import com.example.com.xiaoniba987.R;
 import com.example.com.xiaoniba987.base.BaseFragment;
 import com.example.com.xiaoniba987.bean.AdBean;
+import com.example.com.xiaoniba987.bean.AddFavoriteBean;
+import com.example.com.xiaoniba987.bean.PraiseBean;
 import com.example.com.xiaoniba987.bean.VideosBean;
 import com.example.com.xiaoniba987.httpcompoter.DaggerHttpComponent;
 import com.example.com.xiaoniba987.ui.tuijian.adapter.RenMenAdapter;
@@ -41,6 +43,10 @@ public class ReMenFragment extends BaseFragment<TuiPresenter> implements TuiCont
     private String uid="2797";
     private String type="1";
     private int page=1;
+    private String msg1;
+    private String msg2;
+    private String msg3;
+    private List<VideosBean.DataBean> data;
 
     @Nullable
     @Override
@@ -105,8 +111,32 @@ public class ReMenFragment extends BaseFragment<TuiPresenter> implements TuiCont
     @Override
     public void getVideosSuccess(VideosBean videosBean) {
         if (videosBean!=null) {
-            List<VideosBean.DataBean> data = videosBean.getData();
-            RenMenAdapter renMenAdapter = new RenMenAdapter(data, getActivity());
+            data = videosBean.getData();
+            RenMenAdapter renMenAdapter = new RenMenAdapter(data, getActivity(),mPresenter,msg1,msg2,msg3);
+            rv.setAdapter(renMenAdapter);
+        }
+    }
+
+    @Override
+    public void praiseSuccess(String msg1) {
+        if (msg1.equals("已点赞")&&msg1.equals("已点赞过")){
+            RenMenAdapter renMenAdapter = new RenMenAdapter(data, getActivity(),mPresenter,msg1,msg2,msg3);
+            rv.setAdapter(renMenAdapter);
+        }
+    }
+
+    @Override
+    public void addFavoriteSuccess(String msg2) {
+        if (msg2.equals("收藏成功")) {
+            RenMenAdapter renMenAdapter = new RenMenAdapter(data, getActivity(), mPresenter, msg1, msg2, msg3);
+            rv.setAdapter(renMenAdapter);
+        }
+    }
+
+    @Override
+    public void cancelFavoriteSuccess(String msg3) {
+        if (msg3.equals("已取消")) {
+            RenMenAdapter renMenAdapter = new RenMenAdapter(data, getActivity(), mPresenter, msg1, msg2, msg3);
             rv.setAdapter(renMenAdapter);
         }
     }

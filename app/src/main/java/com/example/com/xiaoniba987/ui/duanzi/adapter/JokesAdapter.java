@@ -1,6 +1,7 @@
 package com.example.com.xiaoniba987.ui.duanzi.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v4.app.FragmentActivity;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 
 import com.example.com.xiaoniba987.R;
 import com.example.com.xiaoniba987.bean.JokesBean;
+import com.example.com.xiaoniba987.ui.HongHuYeMianActivity;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.getbase.floatingactionbutton.FloatingActionButton;
 
@@ -23,6 +25,8 @@ import java.util.List;
 public class JokesAdapter extends RecyclerView.Adapter<JokesAdapter.JokesHolder>{
     Context context;
     List<JokesBean.DataBean> data;
+    private Listeners listeners;
+
     public JokesAdapter(Context context, List<JokesBean.DataBean> data) {
         this.context=context;
         this.data=data;
@@ -37,13 +41,32 @@ public class JokesAdapter extends RecyclerView.Adapter<JokesAdapter.JokesHolder>
     }
 
     @Override
-    public void onBindViewHolder(@NonNull JokesHolder holder, int position) {
+    public void onBindViewHolder(@NonNull JokesHolder holder, final int position) {
         holder.drawee_view.setImageURI(data.get(position).getUser().getIcon());
         holder.text_name.setText(data.get(position).getUser().getNickname());
         holder.text_time.setText(data.get(position).getCreateTime());
         holder.text.setText(data.get(position).getContent());
+        holder.drawee_view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, HongHuYeMianActivity.class);
+                context.startActivity(intent);
+            }
+        });
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listeners.setOnClickListeners(position);
+            }
+        });
     }
+    public void setOnClickListeners(Listeners listeners){
+        this.listeners=listeners;
+    }
+    public interface Listeners{
 
+        void setOnClickListeners(int position);
+    }
     @Override
     public int getItemCount() {
         if (data!=null) {

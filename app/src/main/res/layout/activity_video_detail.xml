@@ -21,17 +21,33 @@
         <ImageView
             android:layout_gravity="center"
             android:layout_marginLeft="20dp"
-            android:id="@+id/image_shoucang"
+            android:id="@+id/image_quxiao_1"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/raw_1499933216"/>
+        <ImageView
+            android:layout_gravity="center"
+            android:layout_marginLeft="20dp"
+            android:id="@+id/image_quxiao_2"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/raw_1500090533"
+            android:visibility="gone"/>
+        <ImageView
+            android:layout_gravity="center"
+            android:layout_marginLeft="20dp"
+            android:id="@+id/image_shoucang_1"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:src="@drawable/raw_1499933217"/>
         <ImageView
             android:layout_gravity="center"
             android:layout_marginLeft="20dp"
-            android:id="@+id/image_quxiao"
+            android:id="@+id/image_shoucang_2"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:src="@drawable/raw_1499933216"/>
+            android:src="@drawable/raw_1500257333"
+            android:visibility="gone"/>
         <ImageView
             android:layout_gravity="center"
             android:layout_marginLeft="20dp"

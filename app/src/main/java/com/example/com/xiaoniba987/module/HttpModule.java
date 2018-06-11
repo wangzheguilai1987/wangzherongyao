@@ -7,15 +7,25 @@ package com.example.com.xiaoniba987.module;
 
 import com.example.com.xiaoniba987.net.AdApi;
 import com.example.com.xiaoniba987.net.AdApiService;
+import com.example.com.xiaoniba987.net.AddFavoriteApi;
+import com.example.com.xiaoniba987.net.AddFavoriteApiService;
 import com.example.com.xiaoniba987.net.Api;
+import com.example.com.xiaoniba987.net.CancelFavoriteApi;
+import com.example.com.xiaoniba987.net.CancelFavoriteApiService;
 import com.example.com.xiaoniba987.net.HotVideosApi;
 import com.example.com.xiaoniba987.net.HotVideosApiService;
+import com.example.com.xiaoniba987.net.JokeDetailApi;
+import com.example.com.xiaoniba987.net.JokeDetailApiService;
 import com.example.com.xiaoniba987.net.JokesApi;
 import com.example.com.xiaoniba987.net.JokesApiService;
 import com.example.com.xiaoniba987.net.LoginApi;
 import com.example.com.xiaoniba987.net.LoginApiService;
 import com.example.com.xiaoniba987.net.NearVideosApi;
 import com.example.com.xiaoniba987.net.NearVideosApiService;
+import com.example.com.xiaoniba987.net.PraisesApi;
+import com.example.com.xiaoniba987.net.PraisesApiService;
+import com.example.com.xiaoniba987.net.VideoDetailApi;
+import com.example.com.xiaoniba987.net.VideoDetailApiService;
 import com.example.com.xiaoniba987.net.VideosApi;
 import com.example.com.xiaoniba987.net.VideosApiService;
 import com.example.com.xiaoniba987.utils.CommonParamsInterceptor;
@@ -191,4 +201,122 @@ public class HttpModule {
 
         return NearVideosApi.getNearVideosApi(nearVideosApiService);
     }
+
+    @Provides
+        //不需要拦截器
+    VideoDetailApi provideVideoDetailApi() {
+
+        OkHttpClient okHttpClient = new OkHttpClient.Builder()
+                .writeTimeout(20, TimeUnit.SECONDS)
+                .readTimeout(20, TimeUnit.SECONDS)
+                .connectTimeout(10, TimeUnit.SECONDS)
+                .build();
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(Api.LOGIN_URL)
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create())
+                .client(okHttpClient)//用自己的设置读取和链接超时时间'
+
+                .build();
+        VideoDetailApiService videoDetailApiService = retrofit.create(VideoDetailApiService.class);
+
+
+        return VideoDetailApi.getVideoDetailApi(videoDetailApiService);
+    }
+
+    @Provides
+        //不需要拦截器
+    JokeDetailApi provideJokeDetailApi() {
+
+        OkHttpClient okHttpClient = new OkHttpClient.Builder()
+                .writeTimeout(20, TimeUnit.SECONDS)
+                .readTimeout(20, TimeUnit.SECONDS)
+                .connectTimeout(10, TimeUnit.SECONDS)
+                .addInterceptor(new CommonParamsInterceptor())//拦截器
+                .build();
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(Api.LOGIN_URL)
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create())
+                .client(okHttpClient)//用自己的设置读取和链接超时时间'
+
+                .build();
+        JokeDetailApiService jokeDetailApiService = retrofit.create(JokeDetailApiService.class);
+
+
+        return JokeDetailApi.getJokeDetailApi(jokeDetailApiService);
+    }
+
+    @Provides
+        //不需要拦截器
+    PraisesApi providePraisesApi() {
+
+        OkHttpClient okHttpClient = new OkHttpClient.Builder()
+                .writeTimeout(20, TimeUnit.SECONDS)
+                .readTimeout(20, TimeUnit.SECONDS)
+                .connectTimeout(10, TimeUnit.SECONDS)
+                .addInterceptor(new CommonParamsInterceptor())//拦截器
+                .build();
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(Api.LOGIN_URL)
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create())
+                .client(okHttpClient)//用自己的设置读取和链接超时时间'
+
+                .build();
+        PraisesApiService praisesApiService = retrofit.create(PraisesApiService.class);
+
+
+        return PraisesApi.praises(praisesApiService);
+    }
+
+    @Provides
+        //不需要拦截器
+    AddFavoriteApi provideAddFavoriteApi() {
+
+        OkHttpClient okHttpClient = new OkHttpClient.Builder()
+                .writeTimeout(20, TimeUnit.SECONDS)
+                .readTimeout(20, TimeUnit.SECONDS)
+                .connectTimeout(10, TimeUnit.SECONDS)
+                .addInterceptor(new CommonParamsInterceptor())//拦截器
+                .build();
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(Api.LOGIN_URL)
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create())
+                .client(okHttpClient)//用自己的设置读取和链接超时时间'
+
+                .build();
+        AddFavoriteApiService addFavoriteApiService = retrofit.create(AddFavoriteApiService.class);
+
+        return AddFavoriteApi.getAddFavoriteApi(addFavoriteApiService);
+    }
+
+    @Provides
+        //不需要拦截器
+    CancelFavoriteApi provideCancelFavoriteApi() {
+
+        OkHttpClient okHttpClient = new OkHttpClient.Builder()
+                .writeTimeout(20, TimeUnit.SECONDS)
+                .readTimeout(20, TimeUnit.SECONDS)
+                .connectTimeout(10, TimeUnit.SECONDS)
+                .addInterceptor(new CommonParamsInterceptor())//拦截器
+                .build();
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(Api.LOGIN_URL)
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create())
+                .client(okHttpClient)//用自己的设置读取和链接超时时间'
+
+                .build();
+        CancelFavoriteApiService cancelFavoriteApiService = retrofit.create(CancelFavoriteApiService.class);
+
+        return CancelFavoriteApi.cancelFavorite(cancelFavoriteApiService);
+    }
+
 }

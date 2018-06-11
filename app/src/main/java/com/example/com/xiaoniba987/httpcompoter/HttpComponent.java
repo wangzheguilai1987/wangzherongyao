@@ -6,7 +6,10 @@ package com.example.com.xiaoniba987.httpcompoter;
 
 import com.example.com.xiaoniba987.module.HttpModule;
 import com.example.com.xiaoniba987.ui.duanzi.DuanZiFragment;
+import com.example.com.xiaoniba987.ui.duanzi.JokeDetailActivity;
 import com.example.com.xiaoniba987.ui.login.LoginActivity;
+import com.example.com.xiaoniba987.ui.qutu.QuTuFragment;
+import com.example.com.xiaoniba987.ui.shipin.VideoDetailActivity;
 import com.example.com.xiaoniba987.ui.shipin.fragment.FuJinFragment;
 import com.example.com.xiaoniba987.ui.shipin.fragment.ReMenShiPinFragment;
 import com.example.com.xiaoniba987.ui.login_zhuce.LoginActiviti_1;
@@ -28,4 +31,7 @@ public interface HttpComponent {
     void inject(GuanZhuFragment guanZhuFragment);
     void inject(ReMenShiPinFragment reMenShiPinFragment);
     void inject(FuJinFragment fuJinFragment);
+    void inject(VideoDetailActivity videoDetailActivity);
+    void inject(JokeDetailActivity jokeDetailActivity);
+    void inject(QuTuFragment quTuFragment);
 }

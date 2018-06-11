@@ -9,13 +9,12 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.example.com.xiaoniba987.MainActivity;
 import com.example.com.xiaoniba987.R;
 import com.example.com.xiaoniba987.base.BaseActivity;
 import com.example.com.xiaoniba987.bean.UserRegisterBean;
 import com.example.com.xiaoniba987.httpcompoter.DaggerHttpComponent;
 import com.example.com.xiaoniba987.module.HttpModule;
+import com.example.com.xiaoniba987.ui.MainActivity;
 import com.example.com.xiaoniba987.ui.login.LoginActivity;
 import com.example.com.xiaoniba987.ui.login_zhuce.contract.LoginZhuceContract;
 import com.example.com.xiaoniba987.ui.login_zhuce.presenter.LoginZhucePresenter;

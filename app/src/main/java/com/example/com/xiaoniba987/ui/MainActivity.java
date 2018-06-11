@@ -1,4 +1,4 @@
-package com.example.com.xiaoniba987;
+package com.example.com.xiaoniba987.ui;
 
 
 import android.content.Intent;
@@ -16,6 +16,7 @@ import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.example.com.xiaoniba987.R;
 import com.example.com.xiaoniba987.ui.celakuang.My_GuanZhu;
 import com.example.com.xiaoniba987.ui.login.LoginActivity_;
 import com.example.com.xiaoniba987.ui.duanzi.DuanZiFragment;
@@ -44,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
     private RelativeLayout mLeft;
     private BottomTabBar btab;
     private TextView tv_title;
+    private SimpleDraweeView xie;
 
 
     @Override
@@ -115,8 +117,13 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-
-
+        xie.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, BianJiActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     //加载fragment
@@ -141,6 +148,7 @@ public class MainActivity extends AppCompatActivity {
 
     //获取组件
     private void initView() {
+        xie = findViewById(R.id.xie);
         tv_title = findViewById(R.id.tv_title);
         mTitleTemplate = (TitleActivity) findViewById(R.id.title_);
         mTabar = (BottomTabBar) findViewById(R.id.tabar);
@@ -169,6 +177,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
 
     }
 

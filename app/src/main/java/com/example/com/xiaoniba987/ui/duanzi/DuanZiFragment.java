@@ -1,5 +1,6 @@
 package com.example.com.xiaoniba987.ui.duanzi;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -84,8 +85,16 @@ public class DuanZiFragment extends BaseFragment<DuanZiPresenter> implements Dua
 
     @Override
     public void getJokesSuccess(JokesBean jokesBean) {
-        List<JokesBean.DataBean> data = jokesBean.getData();
+        final List<JokesBean.DataBean> data = jokesBean.getData();
         JokesAdapter jokesAdapter = new JokesAdapter(getActivity(),data);
         rv.setAdapter(jokesAdapter);
+        jokesAdapter.setOnClickListeners(new JokesAdapter.Listeners() {
+            @Override
+            public void setOnClickListeners(int position) {
+                Intent intent = new Intent(getActivity(), JokeDetailActivity.class);
+                intent.putExtra("jid",data.get(position).getJid());
+                startActivity(intent);
+            }
+        });
     }
 }

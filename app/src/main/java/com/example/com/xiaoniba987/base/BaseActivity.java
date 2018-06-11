@@ -30,7 +30,12 @@ public abstract class BaseActivity<T extends BaseContract.BasePresenter> extends
         }
     }
 
-    @Override//解绑
+  @Override
+  public void initView(View view) {
+
+  }
+
+  @Override//解绑
     protected void onDestroy() {
         super.onDestroy();
         //解绑

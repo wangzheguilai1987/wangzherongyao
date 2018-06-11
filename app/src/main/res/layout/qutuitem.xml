@@ -35,32 +35,12 @@
                 android:layout_weight="1"
                 android:text="2000000.00"/>
         </LinearLayout>
-        <com.getbase.floatingactionbutton.FloatingActionsMenu
-            android:layout_width="10dp"
-            android:layout_height="10dp"
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:layout_alignParentRight="true"
-            app:fab_addButtonSize="mini"
-            app:fab_expandDirection="left">
+            android:src="@drawable/raw_1500281798"/>
 
-            <com.getbase.floatingactionbutton.FloatingActionButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:fab_icon="@drawable/umeng_socialize_delete"
-                app:fab_size="mini" />
-
-            <com.getbase.floatingactionbutton.FloatingActionButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:fab_icon="@drawable/fuzhi"
-                app:fab_size="mini" />
-
-            <com.getbase.floatingactionbutton.FloatingActionButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:fab_icon="@drawable/gantan"
-                app:fab_size="mini" />
-
-        </com.getbase.floatingactionbutton.FloatingActionsMenu>
     </RelativeLayout>
     <TextView
         android:id="@+id/text_title"
@@ -71,42 +51,31 @@
         android:layout_width="match_parent"
         android:layout_height="270dp">
 
-        <fm.jiecao.jcvideoplayer_lib.JCVideoPlayerStandard
-            android:id="@+id/videoplayer"
-            android:layout_width="match_parent"
-            android:layout_height="270dp" />
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/drawee_view1"
+            android:layout_width="250dp"
+            android:layout_height="200dp"
+            app:placeholderImage="@mipmap/ic_launcher_round"/>
 
         <LinearLayout
             android:id="@+id/linear"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:background="#ffffff"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="40dp"
+            android:layout_toRightOf="@+id/drawee_view1"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
             android:orientation="vertical">
             <ImageView
-                android:id="@+id/member_send_good_1"
+                android:id="@+id/member_send_good"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:src="@drawable/icon_like_png" />
+                android:src="@drawable/raw_1499933216" />
             <ImageView
-                android:id="@+id/member_send_good_2"
+                android:id="@+id/image_shoucang"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:src="@drawable/icon_like_pressed"
-                android:visibility="gone"/>
-            <ImageView
-                android:id="@+id/image_shoucang_1"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:src="@drawable/raw_1499947358"/>
-            <ImageView
-                android:id="@+id/image_shoucang_2"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:src="@drawable/raw_1500022686"
-                android:visibility="gone"/>
+                android:layout_marginTop="20dp"
+                android:src="@drawable/raw_1499933217"/>
             <ImageView
                 android:id="@+id/image_fenxiang"
                 android:layout_width="30dp"
