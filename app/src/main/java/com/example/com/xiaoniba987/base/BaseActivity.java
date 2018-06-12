@@ -1,9 +1,5 @@
 package com.example.com.xiaoniba987.base;
 
-/**
- * Created by 李小龙 on 2018/6/5.
- */
-
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -11,9 +7,11 @@ import android.view.View;
 
 import javax.inject.Inject;
 
-
-                                                                          //视图     抽取的公共方法
-public abstract class BaseActivity<T extends BaseContract.BasePresenter> extends AppCompatActivity implements IBase,BaseContract.BaseView{
+/**
+ * Created by 李小龙 on 2018/6/5.
+ */
+//视图     抽取的公共方法
+public abstract class BaseActivity<T extends BaseContract.BasePresenter> extends AppCompatActivity implements IBase, BaseContract.BaseView {
 
     @Inject  //不能忘
     protected T mPresenter;
@@ -25,17 +23,17 @@ public abstract class BaseActivity<T extends BaseContract.BasePresenter> extends
         inject();
 
         //绑定
-        if (mPresenter!=null) {
+        if (mPresenter != null) {
             mPresenter.attchView(this);
         }
     }
 
-  @Override
-  public void initView(View view) {
+    @Override
+    public void initView(View view) {
 
-  }
+    }
 
-  @Override//解绑
+    @Override//解绑
     protected void onDestroy() {
         super.onDestroy();
         //解绑

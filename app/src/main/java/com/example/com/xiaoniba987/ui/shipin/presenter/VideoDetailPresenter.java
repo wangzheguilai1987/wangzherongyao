@@ -18,6 +18,7 @@ import io.reactivex.schedulers.Schedulers;
 
 public class VideoDetailPresenter extends BasePresenter<VideoDetailContract.View> implements VideoDetailContract.Presenter {
     private VideoDetailApi videoDetailApi;
+
     @Inject
     public VideoDetailPresenter(VideoDetailApi videoDetailApi) {
         this.videoDetailApi = videoDetailApi;

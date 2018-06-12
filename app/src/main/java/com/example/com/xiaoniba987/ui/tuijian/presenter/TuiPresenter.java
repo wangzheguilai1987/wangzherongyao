@@ -32,13 +32,14 @@ public class TuiPresenter extends BasePresenter<TuiContract.View> implements Tui
     private PraisesApi praiseApi;
     private AddFavoriteApi addFavoriteApi;
     private CancelFavoriteApi cancelFavoriteApi;
+
     @Inject
-    public TuiPresenter(AdApi adApi, VideosApi videosApi, PraisesApi praiseApi,AddFavoriteApi addFavoriteApi,CancelFavoriteApi cancelFavoriteApi) {
+    public TuiPresenter(AdApi adApi, VideosApi videosApi, PraisesApi praiseApi, AddFavoriteApi addFavoriteApi, CancelFavoriteApi cancelFavoriteApi) {
         this.adApi = adApi;
         this.videosApi = videosApi;
         this.praiseApi = praiseApi;
         this.addFavoriteApi = addFavoriteApi;
-        this.cancelFavoriteApi=cancelFavoriteApi;
+        this.cancelFavoriteApi = cancelFavoriteApi;
     }
 
     @Override
@@ -98,7 +99,7 @@ public class TuiPresenter extends BasePresenter<TuiContract.View> implements Tui
 
     @Override
     public void praise(String uid, String wid) {
-        praiseApi.praises(uid,wid)
+        praiseApi.praises(uid, wid)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<PraiseBean>() {
@@ -127,7 +128,7 @@ public class TuiPresenter extends BasePresenter<TuiContract.View> implements Tui
 
     @Override
     public void addFavorite(String uid, String wid) {
-        addFavoriteApi.addFavorite(uid,wid)
+        addFavoriteApi.addFavorite(uid, wid)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<AddFavoriteBean>() {
@@ -156,7 +157,7 @@ public class TuiPresenter extends BasePresenter<TuiContract.View> implements Tui
 
     @Override
     public void cancelFavorite(String uid, String wid) {
-        cancelFavoriteApi.cancelFavorite(uid,wid)
+        cancelFavoriteApi.cancelFavorite(uid, wid)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<CancelFavoriteBean>() {

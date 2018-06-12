@@ -9,6 +9,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import com.example.com.xiaoniba987.R;
 import com.example.com.xiaoniba987.base.BaseActivity;
 import com.example.com.xiaoniba987.bean.UserRegisterBean;
@@ -19,7 +20,7 @@ import com.example.com.xiaoniba987.ui.login.LoginActivity;
 import com.example.com.xiaoniba987.ui.login_zhuce.contract.LoginZhuceContract;
 import com.example.com.xiaoniba987.ui.login_zhuce.presenter.LoginZhucePresenter;
 
-public class LoginActiviti_1 extends BaseActivity<LoginZhucePresenter> implements LoginZhuceContract.View,View.OnClickListener {
+public class LoginActiviti_1 extends BaseActivity<LoginZhucePresenter> implements LoginZhuceContract.View, View.OnClickListener {
 
     private ImageView mImg2;
     private TextView mTvWangji;
@@ -71,7 +72,7 @@ public class LoginActiviti_1 extends BaseActivity<LoginZhucePresenter> implement
 
                 break;
             case R.id.tv_youke:
-                Intent intent1=new Intent(LoginActiviti_1.this, MainActivity.class);
+                Intent intent1 = new Intent(LoginActiviti_1.this, MainActivity.class);
                 startActivity(intent1);
                 break;
         }
@@ -98,13 +99,13 @@ public class LoginActiviti_1 extends BaseActivity<LoginZhucePresenter> implement
 
     @Override//成功回调方法
     public void loginSuccess_zhuce(UserRegisterBean userRegisterBean) {
-        Log.d("aaaaaaaaa",userRegisterBean.getCode()+"");
+        Log.d("aaaaaaaaa", userRegisterBean.getCode() + "");
 
         Toast.makeText(LoginActiviti_1.this, userRegisterBean.getMsg(), Toast.LENGTH_SHORT).show();
-        if (userRegisterBean.getCode().equals("0")){
+        if (userRegisterBean.getCode().equals("0")) {
             Intent intent = getIntent();
             intent.putExtra("mobile", mobile);
-            intent.putExtra("password",password);
+            intent.putExtra("password", password);
             setResult(1, intent);
             finish();
         }

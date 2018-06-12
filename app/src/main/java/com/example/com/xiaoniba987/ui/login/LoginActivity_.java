@@ -49,7 +49,7 @@ public class LoginActivity_ extends AppCompatActivity implements View.OnClickLis
             case R.id.weixin:
                 break;
             case R.id.tv:
-                Intent intent=new Intent(LoginActivity_.this,LoginActivity.class);
+                Intent intent = new Intent(LoginActivity_.this, LoginActivity.class);
                 startActivity(intent);
                 break;
         }

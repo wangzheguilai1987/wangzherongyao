@@ -2,9 +2,7 @@ package com.example.com.xiaoniba987.ui.duanzi.adapter;
 
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.support.annotation.NonNull;
-import android.support.v4.app.FragmentActivity;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,21 +20,21 @@ import java.util.List;
  * Created by Lenovo on 2018/6/6.
  */
 
-public class JokesAdapter extends RecyclerView.Adapter<JokesAdapter.JokesHolder>{
+public class JokesAdapter extends RecyclerView.Adapter<JokesAdapter.JokesHolder> {
     Context context;
     List<JokesBean.DataBean> data;
     private Listeners listeners;
 
     public JokesAdapter(Context context, List<JokesBean.DataBean> data) {
-        this.context=context;
-        this.data=data;
+        this.context = context;
+        this.data = data;
     }
 
     @NonNull
     @Override
     public JokesHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view=View.inflate(context, R.layout.jokes_item,null);
-        JokesHolder holder=new JokesHolder(view);
+        View view = View.inflate(context, R.layout.jokes_item, null);
+        JokesHolder holder = new JokesHolder(view);
         return holder;
     }
 
@@ -60,20 +58,24 @@ public class JokesAdapter extends RecyclerView.Adapter<JokesAdapter.JokesHolder>
             }
         });
     }
-    public void setOnClickListeners(Listeners listeners){
-        this.listeners=listeners;
+
+    public void setOnClickListeners(Listeners listeners) {
+        this.listeners = listeners;
     }
-    public interface Listeners{
+
+    public interface Listeners {
 
         void setOnClickListeners(int position);
     }
+
     @Override
     public int getItemCount() {
-        if (data!=null) {
+        if (data != null) {
             return data.size();
         }
         return 0;
     }
+
     class JokesHolder extends RecyclerView.ViewHolder {
         private FloatingActionButton talk_item_floating_a;
         private FloatingActionButton talk_item_floating_b;
@@ -81,6 +83,7 @@ public class JokesAdapter extends RecyclerView.Adapter<JokesAdapter.JokesHolder>
         private TextView text_name;
         private TextView text_time;
         private TextView text;
+
         public JokesHolder(View itemView) {
             super(itemView);
             drawee_view = itemView.findViewById(R.id.drawee_view);

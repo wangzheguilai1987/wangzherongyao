@@ -1,7 +1,6 @@
 package com.example.com.xiaoniba987.ui.duanzi.contract;
 
 import com.example.com.xiaoniba987.base.BaseContract;
-import com.example.com.xiaoniba987.bean.AdBean;
 import com.example.com.xiaoniba987.bean.JokesBean;
 
 /**
@@ -14,6 +13,6 @@ public interface DuanZiContract {
     }
 
     interface Presenter extends BaseContract.BasePresenter<View> {
-        void  getJokes(String page);
+        void getJokes(String page);
     }
 }

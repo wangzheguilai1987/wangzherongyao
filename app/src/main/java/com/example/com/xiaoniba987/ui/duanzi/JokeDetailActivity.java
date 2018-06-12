@@ -16,7 +16,7 @@ import com.example.com.xiaoniba987.ui.duanzi.presenter.JokeDetailPresenter;
 import com.getbase.floatingactionbutton.FloatingActionButton;
 import com.getbase.floatingactionbutton.FloatingActionsMenu;
 
-public class JokeDetailActivity extends BaseActivity<JokeDetailPresenter> implements View.OnClickListener,JokeDetailContract.View {
+public class JokeDetailActivity extends BaseActivity<JokeDetailPresenter> implements View.OnClickListener, JokeDetailContract.View {
 
     private ImageView drawee_view;
     /**
@@ -44,11 +44,12 @@ public class JokeDetailActivity extends BaseActivity<JokeDetailPresenter> implem
         super.onCreate(savedInstanceState);
         initView();
         jid = getIntent().getIntExtra("jid", -1);
-        if (jid!=-1) {
+        if (jid != -1) {
             mPresenter.getJokeDetail(jid + "");
         }
 
     }
+
     @Override
     public int getContentLayout() {
         return R.layout.activity_joke_detail;
@@ -101,7 +102,7 @@ public class JokeDetailActivity extends BaseActivity<JokeDetailPresenter> implem
     @Override
     public void getJokeDetailSuccess(JokeDetailBean jokeDetailBean) {
         JokeDetailBean.DataBean data = jokeDetailBean.getData();
-        Log.e("dddd",data.getContent());
+        Log.e("dddd", data.getContent());
         Glide.with(this).load(data.getUser().getIcon()).into(drawee_view);
         Glide.with(this).load(data.getImgUrls()).into(drawee_view1);
         text_name.setText(data.getUser().getNickname());

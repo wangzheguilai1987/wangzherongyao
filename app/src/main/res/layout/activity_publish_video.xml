@@ -4,10 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.com.xiaoniba987.ui.HongHuYeMianActivity">
+    tools:context="com.example.com.xiaoniba987.ui.bianji.PublishVideoActivity">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="用户页面" />
 </android.support.constraint.ConstraintLayout>

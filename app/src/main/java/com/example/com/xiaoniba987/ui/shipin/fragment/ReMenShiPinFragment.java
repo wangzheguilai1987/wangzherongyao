@@ -14,13 +14,11 @@ import com.example.com.xiaoniba987.R;
 import com.example.com.xiaoniba987.base.BaseFragment;
 import com.example.com.xiaoniba987.bean.HotVideosBean;
 import com.example.com.xiaoniba987.bean.NearVideosBean;
-import com.example.com.xiaoniba987.bean.VideosBean;
 import com.example.com.xiaoniba987.httpcompoter.DaggerHttpComponent;
 import com.example.com.xiaoniba987.ui.shipin.VideoDetailActivity;
 import com.example.com.xiaoniba987.ui.shipin.adapter.RenMenShiPinAdapter;
 import com.example.com.xiaoniba987.ui.shipin.contract.VideosContract;
 import com.example.com.xiaoniba987.ui.shipin.presenter.VideosPresenter;
-import com.example.com.xiaoniba987.ui.tuijian.adapter.RenMenAdapter;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener;
@@ -36,7 +34,7 @@ public class ReMenShiPinFragment extends BaseFragment<VideosPresenter> implement
     private View view;
     private RecyclerView rv;
     private SmartRefreshLayout smart_refresh;
-    private int page=1;
+    private int page = 1;
 
     @Nullable
     @Override
@@ -63,7 +61,7 @@ public class ReMenShiPinFragment extends BaseFragment<VideosPresenter> implement
 
         rv = (RecyclerView) view.findViewById(R.id.rv);
         smart_refresh = (SmartRefreshLayout) view.findViewById(R.id.smart_refresh);
-        rv.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
+        rv.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
         mPresenter.getHotVideos(String.valueOf(page));
         smart_refresh.setOnLoadMoreListener(new OnLoadMoreListener() {
             @Override
@@ -84,7 +82,7 @@ public class ReMenShiPinFragment extends BaseFragment<VideosPresenter> implement
 
     @Override
     public void getHotVideosSuccess(final HotVideosBean hotVideosBean) {
-        if (hotVideosBean!=null) {
+        if (hotVideosBean != null) {
             List<HotVideosBean.DataBean> data = hotVideosBean.getData();
             RenMenShiPinAdapter renMenShiPinAdapter = new RenMenShiPinAdapter(data, getActivity());
             rv.setAdapter(renMenShiPinAdapter);
@@ -92,7 +90,7 @@ public class ReMenShiPinFragment extends BaseFragment<VideosPresenter> implement
                 @Override
                 public void setOnClickListeners(int position) {
                     Intent intent = new Intent(getActivity(), VideoDetailActivity.class);
-                    intent.putExtra("wid",hotVideosBean.getData().get(position).getWid());
+                    intent.putExtra("wid", hotVideosBean.getData().get(position).getWid());
                     startActivity(intent);
                 }
             });

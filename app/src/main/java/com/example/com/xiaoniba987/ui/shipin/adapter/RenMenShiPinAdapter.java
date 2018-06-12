@@ -2,7 +2,6 @@ package com.example.com.xiaoniba987.ui.shipin.adapter;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
-import android.support.v4.app.FragmentActivity;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,21 +16,21 @@ import java.util.List;
  * Created by Lenovo on 2018/6/7.
  */
 
-public class RenMenShiPinAdapter extends RecyclerView.Adapter<RenMenShiPinAdapter.RenMenShiPinHolder>{
+public class RenMenShiPinAdapter extends RecyclerView.Adapter<RenMenShiPinAdapter.RenMenShiPinHolder> {
     List<HotVideosBean.DataBean> data;
     Context context;
     private Listeners listeners;
 
     public RenMenShiPinAdapter(List<HotVideosBean.DataBean> data, Context context) {
-        this.context=context;
-        this.data=data;
+        this.context = context;
+        this.data = data;
     }
 
     @NonNull
     @Override
     public RenMenShiPinHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view=View.inflate(context, R.layout.remenshipin_item,null);
-        RenMenShiPinHolder holder=new RenMenShiPinHolder(view);
+        View view = View.inflate(context, R.layout.remenshipin_item, null);
+        RenMenShiPinHolder holder = new RenMenShiPinHolder(view);
         return holder;
     }
 
@@ -53,13 +52,16 @@ public class RenMenShiPinAdapter extends RecyclerView.Adapter<RenMenShiPinAdapte
             }
         });
     }
-    public void setOnClickListeners(Listeners listeners){
-        this.listeners=listeners;
+
+    public void setOnClickListeners(Listeners listeners) {
+        this.listeners = listeners;
     }
-    public interface Listeners{
+
+    public interface Listeners {
 
         void setOnClickListeners(int position);
     }
+
     class RenMenShiPinHolder extends RecyclerView.ViewHolder {
 
         private SimpleDraweeView draweeView;

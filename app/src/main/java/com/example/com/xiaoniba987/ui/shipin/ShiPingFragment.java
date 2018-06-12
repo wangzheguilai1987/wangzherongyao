@@ -17,8 +17,6 @@ import com.example.com.xiaoniba987.R;
 import com.example.com.xiaoniba987.base.BaseFragment;
 import com.example.com.xiaoniba987.ui.shipin.fragment.FuJinFragment;
 import com.example.com.xiaoniba987.ui.shipin.fragment.ReMenShiPinFragment;
-import com.example.com.xiaoniba987.ui.tuijian.fragment.GuanZhuFragment;
-import com.example.com.xiaoniba987.ui.tuijian.fragment.ReMenFragment;
 import com.example.com.xiaoniba987.utils.TitleActivity;
 
 import java.util.ArrayList;
@@ -36,6 +34,7 @@ public class ShiPingFragment extends BaseFragment {
     private List<Fragment> fragmentList;
     private TitleActivity mTitleTemplate;
     private DrawerLayout mDl;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -47,6 +46,7 @@ public class ShiPingFragment extends BaseFragment {
 
 
     }
+
     @Override
     public int getContentLayout() {
         return R.layout.tuijianfragment;
@@ -64,6 +64,7 @@ public class ShiPingFragment extends BaseFragment {
         //添加数据
         getData();
     }
+
     public void getData() {
         list = new ArrayList<>();
         fragmentList = new ArrayList<>();

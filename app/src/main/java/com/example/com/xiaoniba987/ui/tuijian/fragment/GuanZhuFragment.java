@@ -6,7 +6,6 @@ import android.support.annotation.Nullable;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,13 +38,14 @@ public class GuanZhuFragment extends BaseFragment<TuiPresenter> implements TuiCo
     private Banner banner;
     private RecyclerView rv;
     private SmartRefreshLayout smart_refresh;
-    private String uid="2797";
-    private String type="2";
-    private int page=1;
+    private String uid = "2797";
+    private String type = "2";
+    private int page = 1;
     private PraiseBean praiseBean;
     private String msg1;
     private String msg2;
     private String msg3;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -74,12 +74,12 @@ public class GuanZhuFragment extends BaseFragment<TuiPresenter> implements TuiCo
         rv.setLayoutManager(new LinearLayoutManager(getActivity()));
         rv.addItemDecoration(new DividerItemDecoration(getActivity(), DividerItemDecoration.VERTICAL));
         mPresenter.getAd();
-        mPresenter.getVideos(uid,type, String.valueOf(page));
+        mPresenter.getVideos(uid, type, String.valueOf(page));
         smart_refresh.setOnLoadMoreListener(new OnLoadMoreListener() {
             @Override
             public void onLoadMore(RefreshLayout refreshLayout) {
-                page=1;
-                mPresenter.getVideos(uid,type, String.valueOf(page));
+                page = 1;
+                mPresenter.getVideos(uid, type, String.valueOf(page));
                 smart_refresh.finishLoadMore(2000);
             }
         });
@@ -87,11 +87,11 @@ public class GuanZhuFragment extends BaseFragment<TuiPresenter> implements TuiCo
             @Override
             public void onRefresh(RefreshLayout refreshlayout) {
                 page++;
-                mPresenter.getVideos(uid,type, String.valueOf(page));
+                mPresenter.getVideos(uid, type, String.valueOf(page));
                 smart_refresh.finishRefresh(2000);
             }
         });
-        List<Integer> list=new ArrayList<>();
+        List<Integer> list = new ArrayList<>();
         list.add(R.drawable.raw_1500002643);
         banner.setImageLoader(new GlideImageLoader());
         banner.setImages(list);
@@ -105,9 +105,9 @@ public class GuanZhuFragment extends BaseFragment<TuiPresenter> implements TuiCo
 
     @Override
     public void getVideosSuccess(VideosBean videosBean) {
-        if (videosBean!=null) {
+        if (videosBean != null) {
             List<VideosBean.DataBean> data = videosBean.getData();
-            RenMenAdapter renMenAdapter = new RenMenAdapter(data, getActivity(),mPresenter,msg1,msg2,msg3);
+            RenMenAdapter renMenAdapter = new RenMenAdapter(data, getActivity(), mPresenter, msg1, msg2, msg3);
             rv.setAdapter(renMenAdapter);
         }
     }
@@ -119,7 +119,7 @@ public class GuanZhuFragment extends BaseFragment<TuiPresenter> implements TuiCo
 
     @Override
     public void addFavoriteSuccess(String msg2) {
-        msg2= msg2;
+        msg2 = msg2;
     }
 
     @Override

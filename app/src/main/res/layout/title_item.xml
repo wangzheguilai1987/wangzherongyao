@@ -1,31 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="35dp"
-    xmlns:fresco="http://schemas.android.com/apk/res-auto"
-    android:background="#03A9F4"
-    >
+    android:background="#03A9F4">
 
     <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/sdv"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        fresco:roundAsCircle="true"
         fresco:placeholderImage="@drawable/touxiang"
-        android:id="@+id/sdv"/>
+        fresco:roundAsCircle="true" />
+
     <TextView
+        android:id="@+id/tv_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
         android:text="推荐"
-        android:textSize="20dp"
-        android:id="@+id/tv_title"
-        android:layout_centerInParent="true"/>
+        android:textSize="20dp" />
 
     <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/xie"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_alignParentRight="true"
-        fresco:placeholderImage="@drawable/raw_1500034665"
-        android:id="@+id/xie"/>
+        fresco:placeholderImage="@drawable/raw_1500034665" />
 
 </RelativeLayout>

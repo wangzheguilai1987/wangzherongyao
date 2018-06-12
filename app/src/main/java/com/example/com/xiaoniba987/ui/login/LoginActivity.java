@@ -103,7 +103,7 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
     @Override//成功回调的方法
     public void loginSuccess(UserBean userBean) {
         Log.d("xxxxxxxxxxxxx", userBean.getMsg());
-        Toast.makeText(LoginActivity.this,userBean.getMsg()+"",Toast.LENGTH_SHORT).show();
+        Toast.makeText(LoginActivity.this, userBean.getMsg() + "", Toast.LENGTH_SHORT).show();
 
         if (userBean.getCode().equals("0")) {
             SharedPreferencesUtils.setParam(LoginActivity.this, "uid", userBean.getData().getUid() + "");

@@ -14,8 +14,6 @@ import android.view.ViewGroup;
 import com.example.com.xiaoniba987.R;
 import com.example.com.xiaoniba987.base.BaseFragment;
 import com.example.com.xiaoniba987.bean.AdBean;
-import com.example.com.xiaoniba987.bean.AddFavoriteBean;
-import com.example.com.xiaoniba987.bean.PraiseBean;
 import com.example.com.xiaoniba987.bean.VideosBean;
 import com.example.com.xiaoniba987.httpcompoter.DaggerHttpComponent;
 import com.example.com.xiaoniba987.ui.tuijian.adapter.RenMenAdapter;
@@ -40,9 +38,9 @@ public class ReMenFragment extends BaseFragment<TuiPresenter> implements TuiCont
     private Banner banner;
     private RecyclerView rv;
     private SmartRefreshLayout smart_refresh;
-    private String uid="2797";
-    private String type="1";
-    private int page=1;
+    private String uid = "2797";
+    private String type = "1";
+    private int page = 1;
     private String msg1;
     private String msg2;
     private String msg3;
@@ -76,12 +74,12 @@ public class ReMenFragment extends BaseFragment<TuiPresenter> implements TuiCont
         rv.setLayoutManager(new LinearLayoutManager(getActivity()));
         rv.addItemDecoration(new DividerItemDecoration(getActivity(), DividerItemDecoration.VERTICAL));
         mPresenter.getAd();
-        mPresenter.getVideos(uid,type, String.valueOf(page));
+        mPresenter.getVideos(uid, type, String.valueOf(page));
         smart_refresh.setOnLoadMoreListener(new OnLoadMoreListener() {
             @Override
             public void onLoadMore(RefreshLayout refreshLayout) {
-                page=1;
-                mPresenter.getVideos(uid,type, String.valueOf(page));
+                page = 1;
+                mPresenter.getVideos(uid, type, String.valueOf(page));
                 smart_refresh.finishLoadMore(2000);
             }
         });
@@ -89,7 +87,7 @@ public class ReMenFragment extends BaseFragment<TuiPresenter> implements TuiCont
             @Override
             public void onRefresh(RefreshLayout refreshlayout) {
                 page++;
-                mPresenter.getVideos(uid,type, String.valueOf(page));
+                mPresenter.getVideos(uid, type, String.valueOf(page));
                 smart_refresh.finishRefresh(2000);
             }
         });
@@ -97,10 +95,10 @@ public class ReMenFragment extends BaseFragment<TuiPresenter> implements TuiCont
 
     @Override
     public void getAdSuccess(AdBean adBean) {
-        Log.d("ddd",adBean.getData().get(0).getTitle());
+        Log.d("ddd", adBean.getData().get(0).getTitle());
         List<AdBean.DataBean> data = adBean.getData();
-        List<String> list=new ArrayList<>();
-        for (int i=0;i<data.size();i++){
+        List<String> list = new ArrayList<>();
+        for (int i = 0; i < data.size(); i++) {
             list.add(data.get(i).getIcon());
         }
         banner.setImageLoader(new GlideImageLoader());
@@ -110,17 +108,17 @@ public class ReMenFragment extends BaseFragment<TuiPresenter> implements TuiCont
 
     @Override
     public void getVideosSuccess(VideosBean videosBean) {
-        if (videosBean!=null) {
+        if (videosBean != null) {
             data = videosBean.getData();
-            RenMenAdapter renMenAdapter = new RenMenAdapter(data, getActivity(),mPresenter,msg1,msg2,msg3);
+            RenMenAdapter renMenAdapter = new RenMenAdapter(data, getActivity(), mPresenter, msg1, msg2, msg3);
             rv.setAdapter(renMenAdapter);
         }
     }
 
     @Override
     public void praiseSuccess(String msg1) {
-        if (msg1.equals("已点赞")&&msg1.equals("已点赞过")){
-            RenMenAdapter renMenAdapter = new RenMenAdapter(data, getActivity(),mPresenter,msg1,msg2,msg3);
+        if (msg1.equals("已点赞") && msg1.equals("已点赞过")) {
+            RenMenAdapter renMenAdapter = new RenMenAdapter(data, getActivity(), mPresenter, msg1, msg2, msg3);
             rv.setAdapter(renMenAdapter);
         }
     }

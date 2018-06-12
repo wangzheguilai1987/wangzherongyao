@@ -17,6 +17,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.com.xiaoniba987.R;
+import com.example.com.xiaoniba987.ui.bianji.BianJiActivity;
 import com.example.com.xiaoniba987.ui.celakuang.My_GuanZhu;
 import com.example.com.xiaoniba987.ui.login.LoginActivity_;
 import com.example.com.xiaoniba987.ui.duanzi.DuanZiFragment;
@@ -92,16 +93,16 @@ public class MainActivity extends AppCompatActivity {
         String uid = (String) SharedPreferencesUtils.getParam(MainActivity.this, "uid", "-1");
         String name = (String) SharedPreferencesUtils.getParam(MainActivity.this, "name", "");
         String iconUrl = (String) SharedPreferencesUtils.getParam(MainActivity.this, "iconUrl", "");
-        if (uid.equals("-1")){
+        if (uid.equals("-1")) {
 
-        }else {
+        } else {
             Glide.with(this).load(iconUrl).into(mCesdv);
         }
 
         // 2创建适配器
         SimpleAdapter adapter = new SimpleAdapter(this, list,
-                R.layout.drawerlist_item, new String[] { "name", "image" },
-                new int[] { R.id.tv_name, R.id.img });
+                R.layout.drawerlist_item, new String[]{"name", "image"},
+                new int[]{R.id.tv_name, R.id.img});
 
         // 3 填充
         mLv.setAdapter(adapter);
@@ -109,9 +110,9 @@ public class MainActivity extends AppCompatActivity {
         mLv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                switch (position){
+                switch (position) {
                     case 0:
-                        Intent intent=new Intent(MainActivity.this,My_GuanZhu.class);
+                        Intent intent = new Intent(MainActivity.this, My_GuanZhu.class);
                         startActivity(intent);
                         break;
                 }
@@ -129,14 +130,14 @@ public class MainActivity extends AppCompatActivity {
     //加载fragment
     private void initFragment() {
         btab.init(getSupportFragmentManager())
-                .setImgSize(100, 100)
+                .setImgSize(40, 40)
                 .setFontSize(12)
                 .setTabPadding(4, 6, 10)
-                .setChangeColor(Color.RED, Color.DKGRAY)
-                .addTabItem("推荐", R.drawable.tuijian2, R.drawable.tuijian1, TuiJianFragment.class)
-                .addTabItem("段子", R.drawable.duanzi2, R.drawable.duanzi1, DuanZiFragment.class)
-                .addTabItem("视频", R.drawable.shipin2, R.drawable.shipin1, ShiPingFragment.class)
-                .addTabItem("趣图", R.drawable.tuijian2, R.drawable.tuijian1, QuTuFragment.class)
+                .setChangeColor(Color.BLUE, Color.DKGRAY)
+                .addTabItem("推荐", R.drawable.raw_1500083878, TuiJianFragment.class)
+                .addTabItem("段子", R.drawable.raw_1500085327, DuanZiFragment.class)
+                .addTabItem("视频", R.drawable.raw_1500083686, ShiPingFragment.class)
+                .addTabItem("趣图", R.drawable.raw_1500083878, QuTuFragment.class)
                 .isShowDivider(false)
                 .setOnTabChangeListener(new BottomTabBar.OnTabChangeListener() {
                     @Override
@@ -173,7 +174,7 @@ public class MainActivity extends AppCompatActivity {
         mDimg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(MainActivity.this, LoginActivity_.class);
+                Intent intent = new Intent(MainActivity.this, LoginActivity_.class);
                 startActivity(intent);
             }
         });

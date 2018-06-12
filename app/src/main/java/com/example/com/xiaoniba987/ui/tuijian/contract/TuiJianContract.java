@@ -10,13 +10,14 @@ import com.example.com.xiaoniba987.bean.UserBean;
 public interface TuiJianContract {
 
     //泛型  实现 P层和 View层关联
-    interface Presenter extends BaseContract.BasePresenter<View>{
+    interface Presenter extends BaseContract.BasePresenter<View> {
 
         //推荐方法    需要两个参数
-        void  tuijian(String mobile,String password);
+        void tuijian(String mobile, String password);
 
     }
-    interface View extends BaseContract.BaseView{
+
+    interface View extends BaseContract.BaseView {
 
         void loginSuccess(UserBean userBean);  //登陆bean包
     }

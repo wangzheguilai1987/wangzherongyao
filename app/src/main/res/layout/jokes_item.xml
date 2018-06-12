@@ -1,19 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="50dp">
+
         <com.facebook.drawee.view.SimpleDraweeView
             android:id="@+id/drawee_view"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_gravity="center"
             app:placeholderImage="@mipmap/ic_launcher_round"
-            app:roundAsCircle="true"/>
+            app:roundAsCircle="true" />
+
         <LinearLayout
             android:id="@+id/ll"
             android:layout_width="wrap_content"
@@ -26,14 +29,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:text="牛奶"/>
+                android:text="牛奶" />
+
             <TextView
                 android:id="@+id/text_time"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:text="2000000.00"/>
+                android:text="2000000.00" />
         </LinearLayout>
+
         <com.getbase.floatingactionbutton.FloatingActionsMenu
             android:id="@+id/talk_item_floating"
             android:layout_width="10dp"
@@ -65,10 +70,11 @@
 
         </com.getbase.floatingactionbutton.FloatingActionsMenu>
     </RelativeLayout>
+
     <TextView
         android:id="@+id/text"
-        android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="bucuo,bucuo"/>
+        android:gravity="center"
+        android:text="bucuo,bucuo" />
 </LinearLayout>

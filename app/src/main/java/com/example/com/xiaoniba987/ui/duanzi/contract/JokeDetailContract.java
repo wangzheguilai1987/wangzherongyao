@@ -13,6 +13,6 @@ public interface JokeDetailContract {
     }
 
     interface Presenter extends BaseContract.BasePresenter<View> {
-        void  getJokeDetail(String jid);
+        void getJokeDetail(String jid);
     }
 }

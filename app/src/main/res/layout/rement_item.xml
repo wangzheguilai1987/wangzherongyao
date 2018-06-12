@@ -1,40 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="10dp"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:padding="10dp">
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="50dp">
+
         <com.facebook.drawee.view.SimpleDraweeView
             android:id="@+id/drawee_view"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_gravity="center"
             app:placeholderImage="@mipmap/ic_launcher_round"
-            app:roundAsCircle="true"/>
+            app:roundAsCircle="true" />
+
         <LinearLayout
             android:id="@+id/ll"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_toRightOf="@+id/drawee_view"
             android:orientation="vertical">
+
             <TextView
                 android:id="@+id/text_name"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:text="牛奶"/>
+                android:text="牛奶" />
+
             <TextView
                 android:id="@+id/text_time"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:text="2000000.00"/>
+                android:text="2000000.00" />
         </LinearLayout>
+
         <com.getbase.floatingactionbutton.FloatingActionsMenu
             android:layout_width="10dp"
             android:layout_height="10dp"
@@ -62,11 +67,13 @@
 
         </com.getbase.floatingactionbutton.FloatingActionsMenu>
     </RelativeLayout>
+
     <TextView
         android:id="@+id/text_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="天气妹妹"/>
+        android:text="天气妹妹" />
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="270dp">
@@ -81,48 +88,55 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:background="#ffffff"
             android:layout_marginRight="10dp"
             android:layout_marginTop="40dp"
+            android:background="#ffffff"
             android:orientation="vertical">
+
             <ImageView
                 android:id="@+id/member_send_good_1"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:src="@drawable/icon_like_png" />
+
             <ImageView
                 android:id="@+id/member_send_good_2"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:src="@drawable/icon_like_pressed"
-                android:visibility="gone"/>
+                android:visibility="gone" />
+
             <ImageView
                 android:id="@+id/image_shoucang_1"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:src="@drawable/raw_1499947358"/>
+                android:src="@drawable/raw_1499947358" />
+
             <ImageView
                 android:id="@+id/image_shoucang_2"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:src="@drawable/raw_1500022686"
-                android:visibility="gone"/>
+                android:visibility="gone" />
+
             <ImageView
                 android:id="@+id/image_fenxiang"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_marginTop="20dp"
-                android:src="@drawable/raw_1499995160"/>
+                android:src="@drawable/raw_1499995160" />
+
             <ImageView
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_marginTop="20dp"
-                android:src="@drawable/raw_1499933789"/>
+                android:src="@drawable/raw_1499933789" />
         </LinearLayout>
     </RelativeLayout>
+
     <TextView
         android:id="@+id/text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="不错，不错，不错 "/>
+        android:text="不错，不错，不错 " />
 </LinearLayout>

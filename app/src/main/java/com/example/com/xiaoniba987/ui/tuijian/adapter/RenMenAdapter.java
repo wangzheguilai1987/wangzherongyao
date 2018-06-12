@@ -13,7 +13,6 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.com.xiaoniba987.R;
-import com.example.com.xiaoniba987.bean.PraiseBean;
 import com.example.com.xiaoniba987.bean.VideosBean;
 import com.example.com.xiaoniba987.ui.HongHuYeMianActivity;
 import com.example.com.xiaoniba987.ui.tuijian.presenter.TuiPresenter;
@@ -27,28 +26,29 @@ import fm.jiecao.jcvideoplayer_lib.JCVideoPlayerStandard;
  * Created by Lenovo on 2018/6/6.
  */
 
-public class RenMenAdapter extends RecyclerView.Adapter<RenMenAdapter.RenMenHolder>{
+public class RenMenAdapter extends RecyclerView.Adapter<RenMenAdapter.RenMenHolder> {
     private String msg1;
     private String msg2;
     private String msg3;
     List<VideosBean.DataBean> data;
     Context context;
     TuiPresenter mPresenter;
-    private String uid="2797";
-    private boolean flag=true;
-    public RenMenAdapter(List<VideosBean.DataBean> data , Context context, TuiPresenter mPresenter, String msg1,String msg2,String msg3) {
-        this.context=context;
-        this.msg1=msg1;
-        this.msg2=msg2;
-        this.msg3=msg3;
-        this.data=data;
-        this.mPresenter=mPresenter;
+    private String uid = "2797";
+    private boolean flag = true;
+
+    public RenMenAdapter(List<VideosBean.DataBean> data, Context context, TuiPresenter mPresenter, String msg1, String msg2, String msg3) {
+        this.context = context;
+        this.msg1 = msg1;
+        this.msg2 = msg2;
+        this.msg3 = msg3;
+        this.data = data;
+        this.mPresenter = mPresenter;
     }
 
     @NonNull
     @Override
     public RenMenHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view= View.inflate(context, R.layout.rement_item,null);
+        View view = View.inflate(context, R.layout.rement_item, null);
         RenMenHolder renMenHolder = new RenMenHolder(view);
         return renMenHolder;
     }
@@ -61,7 +61,7 @@ public class RenMenAdapter extends RecyclerView.Adapter<RenMenAdapter.RenMenHold
         holder.text_title.setText(data.get(position).getWorkDesc());
         holder.jcVideoPlayerStandard.TOOL_BAR_EXIST = false;
         holder.jcVideoPlayerStandard.setUp(data.get(position).getVideoUrl(), JCVideoPlayerStandard.SCREEN_LAYOUT_NORMAL, "播放视频的标题，可以为空");
-        Glide.with(context).load(data.get(position).getVideoUrl()).into( holder.jcVideoPlayerStandard.thumbImageView);
+        Glide.with(context).load(data.get(position).getVideoUrl()).into(holder.jcVideoPlayerStandard.thumbImageView);
         holder.jcVideoPlayerStandard.widthRatio = 4;//播放比例
         holder.jcVideoPlayerStandard.heightRatio = 3;
         holder.drawee_view.setOnClickListener(new View.OnClickListener() {
@@ -94,7 +94,7 @@ public class RenMenAdapter extends RecyclerView.Adapter<RenMenAdapter.RenMenHold
                 holder.image_shoucang_1.setVisibility(View.GONE);
                 holder.image_shoucang_2.setVisibility(View.VISIBLE);
                 mPresenter.addFavorite(uid, String.valueOf(data.get(position).getWid()));
-                Toast.makeText(context, "收藏成功",Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "收藏成功", Toast.LENGTH_SHORT).show();
             }
         });
         holder.image_shoucang_2.setOnClickListener(new View.OnClickListener() {
@@ -117,7 +117,7 @@ public class RenMenAdapter extends RecyclerView.Adapter<RenMenAdapter.RenMenHold
 
     @Override
     public int getItemCount() {
-        if (data!=null) {
+        if (data != null) {
             return data.size();
         }
         return 0;
@@ -134,6 +134,7 @@ public class RenMenAdapter extends RecyclerView.Adapter<RenMenAdapter.RenMenHold
         private ImageView image_shoucang_1;
         private ImageView image_shoucang_2;
         private ImageView image_fenxiang;
+
         public RenMenHolder(View itemView) {
             super(itemView);
             drawee_view = itemView.findViewById(R.id.drawee_view);

@@ -16,8 +16,9 @@ import io.reactivex.schedulers.Schedulers;
  * Created by Lenovo on 2018/6/6.
  */
 
-public class DuanZiPresenter extends BasePresenter<DuanZiContract.View> implements DuanZiContract.Presenter{
+public class DuanZiPresenter extends BasePresenter<DuanZiContract.View> implements DuanZiContract.Presenter {
     private JokesApi jokesApi;
+
     @Inject
     public DuanZiPresenter(JokesApi jokesApi) {
         this.jokesApi = jokesApi;

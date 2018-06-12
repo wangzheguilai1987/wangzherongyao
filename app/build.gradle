@@ -49,4 +49,5 @@ dependencies {
     compile 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.5.1'
     compile 'com.getbase:floatingactionbutton:1.9.0'
     compile 'fm.jiecao:jiecaovideoplayer:5.5'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.10.0'
 }

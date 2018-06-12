@@ -34,7 +34,7 @@ public class DuanZiFragment extends BaseFragment<DuanZiPresenter> implements Dua
     private RecyclerView rv;
     private SmartRefreshLayout smart_refresh;
     private View view;
-    private int page=1;
+    private int page = 1;
 
     @Nullable
     @Override
@@ -68,7 +68,7 @@ public class DuanZiFragment extends BaseFragment<DuanZiPresenter> implements Dua
         smart_refresh.setOnLoadMoreListener(new OnLoadMoreListener() {
             @Override
             public void onLoadMore(RefreshLayout refreshLayout) {
-                page=1;
+                page = 1;
                 mPresenter.getJokes(String.valueOf(page));
                 smart_refresh.finishLoadMore(2000);
             }
@@ -86,13 +86,13 @@ public class DuanZiFragment extends BaseFragment<DuanZiPresenter> implements Dua
     @Override
     public void getJokesSuccess(JokesBean jokesBean) {
         final List<JokesBean.DataBean> data = jokesBean.getData();
-        JokesAdapter jokesAdapter = new JokesAdapter(getActivity(),data);
+        JokesAdapter jokesAdapter = new JokesAdapter(getActivity(), data);
         rv.setAdapter(jokesAdapter);
         jokesAdapter.setOnClickListeners(new JokesAdapter.Listeners() {
             @Override
             public void setOnClickListeners(int position) {
                 Intent intent = new Intent(getActivity(), JokeDetailActivity.class);
-                intent.putExtra("jid",data.get(position).getJid());
+                intent.putExtra("jid", data.get(position).getJid());
                 startActivity(intent);
             }
         });

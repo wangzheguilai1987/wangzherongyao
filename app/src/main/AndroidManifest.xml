@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.com.xiaoniba987">
-
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.INTERNET" />
-
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <application
         android:name=".app.MyApp"
         android:allowBackup="true"
@@ -12,15 +12,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity
-            android:name=".ui.MainActivity"
-            android:configChanges="orientation|screenSize|keyboardHidden"
-            android:screenOrientation="portrait">
+        <activity android:name=".ui.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.MainActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="portrait">
+
         </activity>
         <activity android:name=".ui.login.LoginActivity" />
         <activity android:name=".ui.login.LoginActivity_" />
@@ -31,8 +34,10 @@
         <activity android:name=".ui.login_zhuce.LoginActiviti_1" />
         <activity android:name=".ui.celakuang.My_GuanZhu" />
         <activity android:name=".ui.duanzi.JokeDetailActivity" />
-        <activity android:name=".ui.BianJiActivity" />
-        <activity android:name=".ui.HongHuYeMianActivity"></activity>
+        <activity android:name=".ui.bianji.BianJiActivity" />
+        <activity android:name=".ui.HongHuYeMianActivity" />
+        <activity android:name=".ui.bianji.PublishJokeActivity" />
+        <activity android:name=".ui.bianji.PublishVideoActivity"></activity>
     </application>
 
 </manifest>

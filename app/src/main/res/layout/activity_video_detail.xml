@@ -1,112 +1,128 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="com.example.com.xiaoniba987.ui.shipin.VideoDetailActivity">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_margin="10dp"
         android:orientation="horizontal">
+
         <ImageView
-            android:layout_gravity="center"
             android:id="@+id/image_back"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:src="@drawable/raw_1500019926"/>
-        <ImageView
             android:layout_gravity="center"
-            android:layout_marginLeft="20dp"
+            android:src="@drawable/raw_1500019926" />
+
+        <ImageView
             android:id="@+id/image_quxiao_1"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:src="@drawable/raw_1499933216"/>
-        <ImageView
             android:layout_gravity="center"
             android:layout_marginLeft="20dp"
+            android:src="@drawable/raw_1499933216" />
+
+        <ImageView
             android:id="@+id/image_quxiao_2"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:src="@drawable/raw_1500090533"
-            android:visibility="gone"/>
-        <ImageView
             android:layout_gravity="center"
             android:layout_marginLeft="20dp"
+            android:src="@drawable/raw_1500090533"
+            android:visibility="gone" />
+
+        <ImageView
             android:id="@+id/image_shoucang_1"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:src="@drawable/raw_1499933217"/>
-        <ImageView
             android:layout_gravity="center"
             android:layout_marginLeft="20dp"
+            android:src="@drawable/raw_1499933217" />
+
+        <ImageView
             android:id="@+id/image_shoucang_2"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:src="@drawable/raw_1500257333"
-            android:visibility="gone"/>
-        <ImageView
             android:layout_gravity="center"
             android:layout_marginLeft="20dp"
+            android:src="@drawable/raw_1500257333"
+            android:visibility="gone" />
+
+        <ImageView
             android:id="@+id/image_fenxiang"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:src="@drawable/raw_1499995160"/>
-        <com.facebook.drawee.view.SimpleDraweeView
             android:layout_gravity="center"
+            android:layout_marginLeft="20dp"
+            android:src="@drawable/raw_1499995160" />
+
+        <com.facebook.drawee.view.SimpleDraweeView
             android:id="@+id/drawee_view"
             android:layout_width="30dp"
-            android:layout_marginLeft="150dp"
             android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="150dp"
             app:placeholderImage="@mipmap/ic_launcher_round"
-            app:roundAsCircle="true"/>
+            app:roundAsCircle="true" />
     </LinearLayout>
+
     <fm.jiecao.jcvideoplayer_lib.JCVideoPlayerStandard
         android:id="@+id/videoplayer"
         android:layout_width="match_parent"
         android:layout_height="270dp" />
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="女子翻窗裤子被挂在窗户，路人围观"/>
+        android:text="女子翻窗裤子被挂在窗户，路人围观" />
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="15963次播放 今天 19：19"/>
+        android:text="15963次播放 今天 19：19" />
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#DEDEDE">
+
         <ImageView
             android:id="@+id/ll"
             android:layout_width="120dp"
             android:layout_height="120dp"
             android:layout_centerInParent="true"
-            android:src="@drawable/raw_1500033586"/>
+            android:src="@drawable/raw_1500033586" />
+
         <LinearLayout
-            android:layout_below="@+id/ll"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/ll"
             android:gravity="center"
             android:orientation="horizontal">
+
             <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:text="拿起手机速来"
-                android:textColor="#7E7E7E"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:textColor="#7E7E7E" />
+
             <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:text="抢个沙发"
-                android:textColor="#2FB3F0"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:textColor="#2FB3F0" />
+
             <TextView
-                android:text="吧！"
-                android:textColor="#7E7E7E"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:text="吧！"
+                android:textColor="#7E7E7E" />
         </LinearLayout>
 
     </RelativeLayout>

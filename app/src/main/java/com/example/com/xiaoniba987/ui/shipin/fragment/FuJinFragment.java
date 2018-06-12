@@ -17,7 +17,6 @@ import com.example.com.xiaoniba987.bean.NearVideosBean;
 import com.example.com.xiaoniba987.httpcompoter.DaggerHttpComponent;
 import com.example.com.xiaoniba987.ui.shipin.VideoDetailActivity;
 import com.example.com.xiaoniba987.ui.shipin.adapter.FuJinShiPinAdapter;
-import com.example.com.xiaoniba987.ui.shipin.adapter.RenMenShiPinAdapter;
 import com.example.com.xiaoniba987.ui.shipin.contract.VideosContract;
 import com.example.com.xiaoniba987.ui.shipin.presenter.VideosPresenter;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
@@ -35,9 +34,9 @@ public class FuJinFragment extends BaseFragment<VideosPresenter> implements Vide
     private View view;
     private RecyclerView rv;
     private SmartRefreshLayout smart_refresh;
-    private int page=1;
-    private double latitude=39.1;
-    private double longitude=32.1;
+    private int page = 1;
+    private double latitude = 39.1;
+    private double longitude = 32.1;
 
     @Nullable
     @Override
@@ -64,12 +63,12 @@ public class FuJinFragment extends BaseFragment<VideosPresenter> implements Vide
 
         rv = (RecyclerView) view.findViewById(R.id.rv);
         smart_refresh = (SmartRefreshLayout) view.findViewById(R.id.smart_refresh);
-        rv.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
-        mPresenter.getNearVideos(String.valueOf(page), latitude+"",longitude+"");
+        rv.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
+        mPresenter.getNearVideos(String.valueOf(page), latitude + "", longitude + "");
         smart_refresh.setOnLoadMoreListener(new OnLoadMoreListener() {
             @Override
             public void onLoadMore(RefreshLayout refreshLayout) {
-                mPresenter.getNearVideos(String.valueOf(page), latitude+"",longitude+"");
+                mPresenter.getNearVideos(String.valueOf(page), latitude + "", longitude + "");
                 smart_refresh.finishLoadMore(2000);
             }
         });
@@ -77,7 +76,7 @@ public class FuJinFragment extends BaseFragment<VideosPresenter> implements Vide
             @Override
             public void onRefresh(RefreshLayout refreshlayout) {
                 page++;
-                mPresenter.getNearVideos(String.valueOf(page), latitude+"",longitude+"");
+                mPresenter.getNearVideos(String.valueOf(page), latitude + "", longitude + "");
                 smart_refresh.finishRefresh(2000);
             }
         });
@@ -90,7 +89,7 @@ public class FuJinFragment extends BaseFragment<VideosPresenter> implements Vide
 
     @Override
     public void getNearVideosSuccess(final NearVideosBean nearVideosBean) {
-        if (nearVideosBean!=null) {
+        if (nearVideosBean != null) {
             List<NearVideosBean.DataBean> data = nearVideosBean.getData();
             FuJinShiPinAdapter fuJinShiPinAdapter = new FuJinShiPinAdapter(data, getActivity());
             rv.setAdapter(fuJinShiPinAdapter);
@@ -98,7 +97,7 @@ public class FuJinFragment extends BaseFragment<VideosPresenter> implements Vide
                 @Override
                 public void setOnClickListeners(int position) {
                     Intent intent = new Intent(getActivity(), VideoDetailActivity.class);
-                    intent.putExtra("wid",nearVideosBean.getData().get(position).getWid());
+                    intent.putExtra("wid", nearVideosBean.getData().get(position).getWid());
                     startActivity(intent);
                 }
             });

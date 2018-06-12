@@ -16,8 +16,9 @@ import io.reactivex.schedulers.Schedulers;
  * Created by Lenovo on 2018/6/8.
  */
 
-public class JokeDetailPresenter extends BasePresenter<JokeDetailContract.View> implements JokeDetailContract.Presenter{
+public class JokeDetailPresenter extends BasePresenter<JokeDetailContract.View> implements JokeDetailContract.Presenter {
     private JokeDetailApi jokeDetailApi;
+
     @Inject
     public JokeDetailPresenter(JokeDetailApi jokeDetailApi) {
         this.jokeDetailApi = jokeDetailApi;

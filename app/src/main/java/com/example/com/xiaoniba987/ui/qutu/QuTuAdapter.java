@@ -1,44 +1,37 @@
 package com.example.com.xiaoniba987.ui.qutu;
 
 import android.content.Context;
-import android.content.Intent;
 import android.net.Uri;
 import android.support.annotation.NonNull;
-import android.support.v4.app.FragmentActivity;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
 import com.example.com.xiaoniba987.R;
 import com.example.com.xiaoniba987.bean.VideosBean;
-import com.example.com.xiaoniba987.ui.HongHuYeMianActivity;
-import com.example.com.xiaoniba987.ui.tuijian.presenter.TuiPresenter;
 import com.facebook.drawee.view.SimpleDraweeView;
 
 import java.util.List;
-
-import fm.jiecao.jcvideoplayer_lib.JCVideoPlayerStandard;
 
 /**
  * Created by Lenovo on 2018/6/11.
  */
 
-public class QuTuAdapter extends RecyclerView.Adapter<QuTuAdapter.QuTuHolder>{
+public class QuTuAdapter extends RecyclerView.Adapter<QuTuAdapter.QuTuHolder> {
     List<VideosBean.DataBean> data;
     Context context;
+
     public QuTuAdapter(List<VideosBean.DataBean> data, Context context) {
-        this.context=context;
-        this.data=data;
+        this.context = context;
+        this.data = data;
     }
 
     @NonNull
     @Override
     public QuTuHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view= View.inflate(context, R.layout.qutuitem,null);
+        View view = View.inflate(context, R.layout.qutuitem, null);
         QuTuHolder renMenHolder = new QuTuHolder(view);
         return renMenHolder;
     }
@@ -54,7 +47,7 @@ public class QuTuAdapter extends RecyclerView.Adapter<QuTuAdapter.QuTuHolder>{
 
     @Override
     public int getItemCount() {
-        if (data!=null) {
+        if (data != null) {
             return data.size();
         }
         return 0;
@@ -77,7 +70,7 @@ public class QuTuAdapter extends RecyclerView.Adapter<QuTuAdapter.QuTuHolder>{
             text_time = itemView.findViewById(R.id.text_time);
             text_title = itemView.findViewById(R.id.text_title);
             drawee_view1 = itemView.findViewById(R.id.drawee_view1);
-            member_send_good= itemView.findViewById(R.id.member_send_good);
+            member_send_good = itemView.findViewById(R.id.member_send_good);
             image_shoucang = itemView.findViewById(R.id.image_shoucang);
             image_fenxiang = itemView.findViewById(R.id.image_fenxiang);
         }

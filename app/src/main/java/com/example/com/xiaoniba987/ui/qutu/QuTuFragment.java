@@ -1,10 +1,8 @@
 package com.example.com.xiaoniba987.ui.qutu;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -15,14 +13,8 @@ import android.view.ViewGroup;
 import com.example.com.xiaoniba987.R;
 import com.example.com.xiaoniba987.base.BaseFragment;
 import com.example.com.xiaoniba987.bean.AdBean;
-import com.example.com.xiaoniba987.bean.JokesBean;
 import com.example.com.xiaoniba987.bean.VideosBean;
 import com.example.com.xiaoniba987.httpcompoter.DaggerHttpComponent;
-import com.example.com.xiaoniba987.ui.duanzi.JokeDetailActivity;
-import com.example.com.xiaoniba987.ui.duanzi.adapter.JokesAdapter;
-import com.example.com.xiaoniba987.ui.duanzi.contract.DuanZiContract;
-import com.example.com.xiaoniba987.ui.duanzi.presenter.DuanZiPresenter;
-import com.example.com.xiaoniba987.ui.tuijian.adapter.RenMenAdapter;
 import com.example.com.xiaoniba987.ui.tuijian.contract.TuiContract;
 import com.example.com.xiaoniba987.ui.tuijian.presenter.TuiPresenter;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
@@ -41,9 +33,9 @@ public class QuTuFragment extends BaseFragment<TuiPresenter> implements TuiContr
     private RecyclerView rv;
     private SmartRefreshLayout smart_refresh;
     private View view;
-    private String uid="2797";
-    private String type="1";
-    private int page=1;
+    private String uid = "2797";
+    private String type = "1";
+    private int page = 1;
 
     @Nullable
     @Override
@@ -72,12 +64,12 @@ public class QuTuFragment extends BaseFragment<TuiPresenter> implements TuiContr
         rv.setLayoutManager(new LinearLayoutManager(getActivity()));
         rv.addItemDecoration(new DividerItemDecoration(getActivity(), DividerItemDecoration.VERTICAL));
 
-        mPresenter.getVideos(uid,type, String.valueOf(page));
+        mPresenter.getVideos(uid, type, String.valueOf(page));
         smart_refresh.setOnLoadMoreListener(new OnLoadMoreListener() {
             @Override
             public void onLoadMore(RefreshLayout refreshLayout) {
-                page=1;
-                mPresenter.getVideos(uid,type, String.valueOf(page));
+                page = 1;
+                mPresenter.getVideos(uid, type, String.valueOf(page));
                 smart_refresh.finishLoadMore(2000);
             }
         });
@@ -85,7 +77,7 @@ public class QuTuFragment extends BaseFragment<TuiPresenter> implements TuiContr
             @Override
             public void onRefresh(RefreshLayout refreshlayout) {
                 page++;
-                mPresenter.getVideos(uid,type, String.valueOf(page));
+                mPresenter.getVideos(uid, type, String.valueOf(page));
                 smart_refresh.finishRefresh(2000);
             }
         });
@@ -99,7 +91,7 @@ public class QuTuFragment extends BaseFragment<TuiPresenter> implements TuiContr
 
     @Override
     public void getVideosSuccess(VideosBean videosBean) {
-        if (videosBean!=null) {
+        if (videosBean != null) {
             List<VideosBean.DataBean> data = videosBean.getData();
             QuTuAdapter quTuAdapter = new QuTuAdapter(data, getActivity());
             rv.setAdapter(quTuAdapter);

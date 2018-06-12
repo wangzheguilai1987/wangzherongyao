@@ -1,24 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     xmlns:fresco="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/dl">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/dl"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
         <com.example.com.xiaoniba987.utils.TitleActivity
+            android:id="@+id/title_"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/title_"/>
+            android:layout_height="wrap_content" />
 
         <com.hjm.bottomtabbar.BottomTabBar
             android:id="@+id/tabar"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent" />
 
     </LinearLayout>
 
@@ -28,49 +29,50 @@
         android:layout_width="250dp"
         android:layout_height="700dp"
         android:layout_gravity="left"
-        android:background="#fff"
-        >
+        android:background="#fff">
 
         <ImageView
+            android:id="@+id/dimg"
             android:layout_width="match_parent"
             android:layout_height="250dp"
-            android:id="@+id/dimg"
-            android:src="@drawable/drawerlayout_background"
-            />
+            android:src="@drawable/drawerlayout_background" />
+
         <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/cesdv"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginTop="130dp"
-            fresco:roundAsCircle="true"
             fresco:placeholderImage="@drawable/touxiang"
-            android:id="@+id/cesdv"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="20dp"
-            android:layout_marginTop="130dp"
-            android:layout_toRightOf="@+id/cesdv"
-            android:text="椰汁奶茶"/>
+            fresco:roundAsCircle="true" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="15sp"
+            android:layout_marginTop="130dp"
+            android:layout_toRightOf="@+id/cesdv"
+            android:text="椰汁奶茶"
+            android:textSize="20dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/cesdv"
             android:text="编辑个性签名"
-            android:layout_below="@+id/cesdv"/>
+            android:textSize="15sp" />
+
         <ImageView
             android:layout_width="45dp"
             android:layout_height="45dp"
-            android:src="@drawable/sex"
             android:layout_alignParentRight="true"
-            android:layout_marginTop="150dp"/>
+            android:layout_marginTop="150dp"
+            android:src="@drawable/sex" />
 
         <ListView
+            android:id="@+id/lv"
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:layout_below="@+id/dimg"
-            android:layout_marginTop="50dp"
-            android:id="@+id/lv">
+            android:layout_marginTop="50dp">
 
         </ListView>
 
@@ -80,22 +82,24 @@
             android:layout_below="@+id/lv"
             android:layout_marginTop="60dp"
             android:orientation="horizontal">
+
             <ImageView
                 android:layout_width="35dp"
                 android:layout_height="35dp"
-                android:src="@drawable/yl"/>
+                android:src="@drawable/yl" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="15dp"
-                android:text="夜间模式"/>
+                android:text="夜间模式"
+                android:textSize="15dp" />
+
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="40dp"
-                android:text="开启"/>
+                android:text="开启" />
         </LinearLayout>
-
 
 
         <LinearLayout
@@ -103,26 +107,22 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:orientation="horizontal">
+
             <ImageView
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_weight="1"
-                android:src="@drawable/raw_1499947056"/>
+                android:src="@drawable/raw_1499947056" />
+
             <ImageView
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_weight="1"
-                android:src="@drawable/raw_1499947157"/>
+                android:src="@drawable/raw_1499947157" />
         </LinearLayout>
 
 
-
     </RelativeLayout>
-
-
-
-
-
 
 
 </android.support.v4.widget.DrawerLayout>

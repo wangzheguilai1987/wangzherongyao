@@ -6,7 +6,6 @@ import com.example.com.xiaoniba987.bean.NearVideosBean;
 import com.example.com.xiaoniba987.net.HotVideosApi;
 import com.example.com.xiaoniba987.net.NearVideosApi;
 import com.example.com.xiaoniba987.ui.shipin.contract.VideosContract;
-import com.example.com.xiaoniba987.ui.tuijian.contract.TuiContract;
 
 import javax.inject.Inject;
 
@@ -19,9 +18,10 @@ import io.reactivex.schedulers.Schedulers;
  * Created by Lenovo on 2018/6/7.
  */
 
-public class VideosPresenter extends BasePresenter<VideosContract.View> implements VideosContract.Presenter{
+public class VideosPresenter extends BasePresenter<VideosContract.View> implements VideosContract.Presenter {
     private HotVideosApi hotVideosApi;
     private NearVideosApi nearVideosApi;
+
     @Inject
     public VideosPresenter(HotVideosApi hotVideosApi, NearVideosApi nearVideosApi) {
         this.hotVideosApi = hotVideosApi;
@@ -58,7 +58,7 @@ public class VideosPresenter extends BasePresenter<VideosContract.View> implemen
 
     @Override
     public void getNearVideos(String page, String latitude, String longitude) {
-        nearVideosApi.getNearVideos(page,latitude,longitude)
+        nearVideosApi.getNearVideos(page, latitude, longitude)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<NearVideosBean>() {
