@@ -11,7 +11,7 @@ import com.example.com.xiaoniba987.R;
 import com.example.com.xiaoniba987.base.BaseActivity;
 import com.example.com.xiaoniba987.bean.VideoDetailBean;
 import com.example.com.xiaoniba987.httpcompoter.DaggerHttpComponent;
-import com.example.com.xiaoniba987.ui.HongHuYeMianActivity;
+import com.example.com.xiaoniba987.ui.celakuang.My_GuanZhu;
 import com.example.com.xiaoniba987.ui.shipin.contract.VideoDetailContract;
 import com.example.com.xiaoniba987.ui.shipin.presenter.VideoDetailPresenter;
 import com.facebook.drawee.view.SimpleDraweeView;
@@ -70,7 +70,7 @@ public class VideoDetailActivity extends BaseActivity<VideoDetailPresenter> impl
         drawee_view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(VideoDetailActivity.this, HongHuYeMianActivity.class);
+                Intent intent = new Intent(VideoDetailActivity.this, My_GuanZhu.class);
                 startActivity(intent);
             }
         });

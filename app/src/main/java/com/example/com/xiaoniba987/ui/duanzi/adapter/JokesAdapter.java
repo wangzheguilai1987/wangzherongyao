@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import com.example.com.xiaoniba987.R;
 import com.example.com.xiaoniba987.bean.JokesBean;
-import com.example.com.xiaoniba987.ui.HongHuYeMianActivity;
+import com.example.com.xiaoniba987.ui.celakuang.My_GuanZhu;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.getbase.floatingactionbutton.FloatingActionButton;
 
@@ -47,7 +47,7 @@ public class JokesAdapter extends RecyclerView.Adapter<JokesAdapter.JokesHolder>
         holder.drawee_view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, HongHuYeMianActivity.class);
+                Intent intent = new Intent(context, My_GuanZhu.class);
                 context.startActivity(intent);
             }
         });

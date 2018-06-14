@@ -14,7 +14,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.example.com.xiaoniba987.R;
 import com.example.com.xiaoniba987.bean.VideosBean;
-import com.example.com.xiaoniba987.ui.HongHuYeMianActivity;
+import com.example.com.xiaoniba987.ui.celakuang.My_GuanZhu;
 import com.example.com.xiaoniba987.ui.tuijian.presenter.TuiPresenter;
 import com.facebook.drawee.view.SimpleDraweeView;
 
@@ -55,7 +55,7 @@ public class RenMenAdapter extends RecyclerView.Adapter<RenMenAdapter.RenMenHold
 
     @Override
     public void onBindViewHolder(@NonNull final RenMenHolder holder, final int position) {
-        holder.drawee_view.setImageURI(Uri.parse(data.get(position).getUser().getIcon()));
+        holder.drawee_view.setImageURI(data.get(position).getUser().getIcon());
         holder.text_name.setText(data.get(position).getUser().getNickname());
         holder.text_time.setText(data.get(position).getCreateTime());
         holder.text_title.setText(data.get(position).getWorkDesc());
@@ -67,7 +67,7 @@ public class RenMenAdapter extends RecyclerView.Adapter<RenMenAdapter.RenMenHold
         holder.drawee_view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, HongHuYeMianActivity.class);
+                Intent intent = new Intent(context, My_GuanZhu.class);
                 context.startActivity(intent);
             }
         });

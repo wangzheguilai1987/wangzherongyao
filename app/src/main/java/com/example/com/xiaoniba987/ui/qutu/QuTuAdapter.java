@@ -38,7 +38,7 @@ public class QuTuAdapter extends RecyclerView.Adapter<QuTuAdapter.QuTuHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull QuTuHolder holder, int position) {
-        holder.drawee_view.setImageURI(Uri.parse(data.get(position).getUser().getIcon()));
+        holder.drawee_view.setImageURI(data.get(position).getUser().getIcon());
         holder.text_name.setText(data.get(position).getUser().getNickname());
         holder.text_time.setText(data.get(position).getCreateTime());
         holder.text_title.setText(data.get(position).getWorkDesc());

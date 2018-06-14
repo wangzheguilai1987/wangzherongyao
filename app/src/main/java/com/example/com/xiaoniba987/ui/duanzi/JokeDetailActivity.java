@@ -38,16 +38,19 @@ public class JokeDetailActivity extends BaseActivity<JokeDetailPresenter> implem
     private ImageView drawee_view1;
     private ImageView image_back;
     private int jid;
+    private String content;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        content = getIntent().getStringExtra("content");
         initView();
+
         jid = getIntent().getIntExtra("jid", -1);
         if (jid != -1) {
             mPresenter.getJokeDetail(jid + "");
         }
-
+        text_title.setText(content);
     }
 
     @Override
